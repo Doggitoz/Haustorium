@@ -54,8 +54,16 @@ public class GameManager : MonoBehaviour
         switch (_currState)
         {
             case GameState.Menu:
+                MenuStart();
                 break;
             case GameState.Playing:
+                PlayingStart();
+                break;
+            case GameState.Paused:
+                PauseStart();
+                break;
+            case GameState.Death:
+                DeathStart();
                 break;
         }
 
@@ -74,6 +82,16 @@ public class GameManager : MonoBehaviour
 
     }
 
+    void PauseStart()
+    {
+
+    }
+
+    void DeathStart()
+    {
+
+    }
+
     #endregion
 
 }
@@ -81,5 +99,5 @@ public class GameManager : MonoBehaviour
 [System.Serializable]
 public enum GameState
 {
-    Menu, Playing, Death
+    Menu, Playing, Paused, Death
 }
