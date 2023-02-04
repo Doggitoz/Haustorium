@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        ChangeState(StartingState);
+        SetState(StartingState);
     }
 
     
@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
 
     public GameState GetState() { return _currState; }
 
-    public void ChangeState(GameState newState)
+    public void SetState(GameState newState)
     {
         _currState = newState;
 
@@ -81,5 +81,5 @@ public class GameManager : MonoBehaviour
 [System.Serializable]
 public enum GameState
 {
-    Menu, Playing
+    Menu, Playing, Death
 }

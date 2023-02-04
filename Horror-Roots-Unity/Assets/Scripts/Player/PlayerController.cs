@@ -15,7 +15,13 @@ public class PlayerController : MonoBehaviour
     [Header("Camera")]
     public Camera playerCam;
     [Range(50, 85)] public float maxPitch;
+    public float fov = 60f;
     float yPitch = 0f;
+
+    [Header("Audio")]
+    [SerializeField] AudioSource footstepsSource;
+    [SerializeField] AudioSource playerEffects;
+    [SerializeField] AudioClip footsteps;
 
     [Header("Blaster")]
     public Blaster blaster;
@@ -25,6 +31,12 @@ public class PlayerController : MonoBehaviour
 
     [Header("Flashlight")]
     public Flashlight flashlight;
+
+    [Header("Health")]
+    [SerializeField] PlayerHealth health;
+
+    [Header("Misc")]
+    Vector3 spawnLocation;
 
     //Components
     Rigidbody rb;
@@ -38,11 +50,17 @@ public class PlayerController : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        spawnLocation = transform.position;
+        playerCam.fieldOfView = fov;
     }
 
     void Update()
     {
-        
+        if (transform.position.y < -100f)
+        {
+            transform.position = spawnLocation;
+        }
+        playerCam.fieldOfView = fov;
     }
 
     #region Player State
@@ -59,6 +77,7 @@ public class PlayerController : MonoBehaviour
 
     #endregion
 
+    #region Input
     public void Look(Vector2 values)
     {
         transform.Rotate(Vector3.up * values.x * Time.deltaTime * sensitivity);
@@ -73,14 +92,17 @@ public class PlayerController : MonoBehaviour
         switch (playerState)
         {
             case PlayerState.Immobile:
-                movement *= 0;
-                break;
+                return;
             case PlayerState.Slowed:
                 movement *= slownessMultiplier;
                 break;
             default:
                 break;
 
+        }
+        if (!footstepsSource.isPlaying)
+        {
+            footstepsSource.PlayOneShot(footsteps);
         }
         transform.Translate(movement);
     }
@@ -89,6 +111,8 @@ public class PlayerController : MonoBehaviour
     {
         flashlight.ToggleFlashlight();
     }
+
+    #endregion
 
     public void PullTo(Vector3 destination, float force)
     {
@@ -108,7 +132,7 @@ public class PlayerController : MonoBehaviour
             //Spawn projectile
 
             GameObject go = Instantiate(projectilePrefab);
-            Projectile proj = go.GetComponent<Projectile>();
+            Projectile proj = go.GetComponent<Projectile>(); //I dont think we need this anymore... idk
             go.transform.position = blaster.projectileLocation.transform.position;
             Vector3 temp = transform.rotation.eulerAngles;
             temp.x = playerCam.transform.rotation.eulerAngles.x;
@@ -120,7 +144,25 @@ public class PlayerController : MonoBehaviour
     public void SetCanShoot(bool value) {
         _canShoot = value;
     }
-    #endregion 
+    #endregion
+
+    #region Health
+    
+    public void DealDamage(float damage)
+    {
+        health.TakeDamage(damage);
+        if (!health.IsAlive())
+        {
+            PlayerDeath();
+        }
+    }
+
+    public void PlayerDeath()
+    {
+        GameManager.GM.SetState(GameState.Death);
+    }
+
+    #endregion
 }
 
 public enum PlayerState

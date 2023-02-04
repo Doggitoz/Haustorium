@@ -55,7 +55,7 @@ public class MainMenu : MonoBehaviour
     public void StartGame()
     {
         ClickSound();
-        GameManager.GM.ChangeState(GameState.Playing);
+        GameManager.GM.SetState(GameState.Playing);
     }
 
     public void ExitGame()

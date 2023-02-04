@@ -15,9 +15,10 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(float amount)
     {
         health -= amount;
-        if (health <= 0)
-        {
-            Destroy(gameObject);
-        }
+    }
+
+    public bool IsAlive()
+    {
+        return health > 0;
     }
 }

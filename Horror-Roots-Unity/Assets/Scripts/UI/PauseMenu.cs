@@ -29,7 +29,7 @@ public class PauseMenu : MonoBehaviour
     {
         ClickSound();
         CloseUI();
-        GameManager.GM.ChangeState(GameState.Menu);
+        GameManager.GM.SetState(GameState.Menu);
     }
 
     void CloseUI()
