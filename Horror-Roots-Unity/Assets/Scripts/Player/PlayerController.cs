@@ -120,7 +120,7 @@ public class PlayerController : MonoBehaviour
     public void SetCanShoot(bool value) {
         _canShoot = value;
     }
-    #endregion
+    #endregion 
 }
 
 public enum PlayerState
