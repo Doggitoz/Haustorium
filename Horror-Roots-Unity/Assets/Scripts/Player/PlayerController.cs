@@ -84,7 +84,6 @@ public class PlayerController : MonoBehaviour
 
     public void PullTo(Vector3 destination, float force)
     {
-        Debug.Log("Pulling to: " + (transform.position - destination));
         rb.AddForce((destination - transform.position).normalized * force, ForceMode.Force);
     }
 
