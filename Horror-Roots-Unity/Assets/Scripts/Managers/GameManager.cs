@@ -1,13 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
 
     [SerializeField] GameState StartingState;
     GameState _currState;
-    public bool Paused = false;
+
+    [SerializeField] GameObject pauseMenu;
+    public bool canPause { get; private set; }
+
+    public UnityEvent OnGamePause { get; private set; }
 
     #region GameManager Singleton
     static private GameManager gm;
@@ -30,17 +36,12 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         CheckManagerInScene();
+        OnGamePause = new UnityEvent();
     }
 
     void Start()
     {
         SetState(StartingState);
-    }
-
-    
-    void Update()
-    {
-        
     }
 
     #region GameState Management
@@ -79,12 +80,12 @@ public class GameManager : MonoBehaviour
 
     void PlayingStart()
     {
-
+        SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(1));
     }
 
     void PauseStart()
     {
-
+        pauseMenu.SetActive(true);
     }
 
     void DeathStart()

@@ -562,9 +562,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 58515970783106133, guid: f39156daa656b16469e7e85fa51511c6, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 833336318155769192, guid: f39156daa656b16469e7e85fa51511c6, type: 3}
       propertyPath: localVolume
       value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497749527176530487, guid: f39156daa656b16469e7e85fa51511c6, type: 3}
+      propertyPath: canShoot
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6497749528273135935, guid: f39156daa656b16469e7e85fa51511c6, type: 3}
       propertyPath: m_Name
