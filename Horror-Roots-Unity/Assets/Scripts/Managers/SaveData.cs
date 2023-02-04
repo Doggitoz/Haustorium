@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System.IO;
 
 public class SaveData : MonoBehaviour
 {
@@ -31,14 +32,16 @@ public class SaveData : MonoBehaviour
         CheckDataInScene();
 
         string filePath = Application.persistentDataPath + "/SaveData.json";
-        string data = System.IO.File.ReadAllText(filePath);
-        if (data == "" || data == null)
+        string data;
+        try
         {
-            CreateNewData();
-        }
-        else
-        {
+            data = System.IO.File.ReadAllText(filePath);
             LoadFromJson();
+        }
+        catch (FileNotFoundException e)
+        {
+            Debug.LogWarning(e.Message);
+            CreateNewData();
         }
 
     }
