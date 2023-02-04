@@ -40,4 +40,12 @@ public class PlayerInput : MonoBehaviour
             controller.Shoot();
     }
 
+    public void OnFlashlight(InputAction.CallbackContext context)
+    {
+        if (!context.started)
+            return;
+
+        controller.ToggleFlashlight();
+    }
+
 }

@@ -23,6 +23,9 @@ public class PlayerController : MonoBehaviour
     public LayerMask ProjectileLayerMask;
     [SerializeField] bool _canShoot = true;
 
+    [Header("Flashlight")]
+    public Flashlight flashlight;
+
     //Components
     Rigidbody rb;
 
@@ -80,6 +83,11 @@ public class PlayerController : MonoBehaviour
 
         }
         transform.Translate(movement);
+    }
+
+    public void ToggleFlashlight()
+    {
+        flashlight.ToggleFlashlight();
     }
 
     public void PullTo(Vector3 destination, float force)
