@@ -131,7 +131,7 @@ public class PlayerController : MonoBehaviour
             }
             else if (go.CompareTag("Trigger"))
             {
-                
+                go.GetComponent<TriggerObject>().Trigger();
             }
         }
     }
