@@ -7,6 +7,8 @@ public class IntroCinematic : MonoBehaviour
 {
     [SerializeField] AudioClip[] ListOfClips;
     [SerializeField] Image background;
+    [SerializeField] Image fadeBackground;
+    [SerializeField] Sprite[] backgroundImages;
     [SerializeField] AudioSource source;
 
     int indexInCinematic = 0;
@@ -29,7 +31,7 @@ public class IntroCinematic : MonoBehaviour
         }
         if (finished)
         {
-            background.color = new Color(0, 0, 0, (timer / timeToFade));
+            fadeBackground.color = new Color(0, 0, 0, (timer / timeToFade));
             timer += Time.deltaTime;
             if (timer > timeToFade + 1f)
             {
@@ -46,6 +48,8 @@ public class IntroCinematic : MonoBehaviour
                 return;
             }
             source.PlayOneShot(ListOfClips[indexInCinematic]);
+            background.sprite = backgroundImages[indexInCinematic];
+            Debug.Log(backgroundImages[indexInCinematic]);
             indexInCinematic++;
         }
     }
