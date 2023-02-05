@@ -53,6 +53,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0a01c1aa3d32c04dbb0d34ffaef54aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layermask:
+    serializedVersion: 2
+    m_Bits: 8
   howClose: 10
   head: {fileID: 3227478633385643690}
   barrel: {fileID: 3227478633385643690}

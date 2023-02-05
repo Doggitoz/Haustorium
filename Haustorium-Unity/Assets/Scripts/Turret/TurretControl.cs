@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
 
 public class TurretControl : MonoBehaviour
 {
+    [SerializeField] LayerMask layermask;
     Transform _Player;
     float dist;
     public float howClose;
@@ -12,6 +15,7 @@ public class TurretControl : MonoBehaviour
     public int _projectileSpeed;
     public float fireRate;
     float nextFire;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,21 +25,28 @@ public class TurretControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        dist = Vector3.Distance(_Player.position, transform.position);
+        dist = UnityEngine.Vector3.Distance(_Player.position, transform.position);
         if(dist <= howClose)
         {
-            head.LookAt(_Player);
-            if(Time.time >= nextFire)
+            RaycastHit hit;
+            UnityEngine.Vector3 dirToPlayer = _Player.position - _projectile.transform.position;
+            if (Physics.Raycast(_projectile.transform.position, dirToPlayer, Mathf.Infinity, layermask))
             {
-                nextFire = Time.time + 1f / fireRate;
-                shoot();
+                head.LookAt(_Player);
+                if (Time.time >= nextFire)
+                {
+                    nextFire = Time.time + 1f / fireRate;
+                    shoot();
+                }
             }
+            
             
         }
     }
 
     void shoot()
     {
+        
         GameObject clone = Instantiate(_projectile, barrel.position, head.rotation);
         clone.GetComponent<Rigidbody>().AddForce(head.forward * _projectileSpeed);
         Destroy(clone, 10);
