@@ -11,6 +11,7 @@ public class PlantSFX : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.GM.GetState() != GameState.Playing) return;
         timer += Time.deltaTime;
         if (timer > 2.5f)
         {

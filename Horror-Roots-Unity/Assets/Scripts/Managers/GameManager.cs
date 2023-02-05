@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameState StartingState;
     GameState _currState;
     [SerializeField] GameObject pauseMenu;
+    [SerializeField] DeathScreen ds;
 
     public bool canPause = true;
     public bool isPaused { get; private set; } = false;
@@ -99,13 +100,16 @@ public class GameManager : MonoBehaviour
     void PlayingStart()
     {
         AudioManager.AM.StopMusic();
+
         SceneManager.LoadScene(2);
         SetCursor(false);
+        AudioManager.AM.PlayMusic(ambientMusic);
     }
 
     void DeathStart()
     {
-        PlayingStart();
+        SetCursor(true);
+        ds.EnableScreen();
     }
 
     void EscapeStart()
