@@ -329,6 +329,74 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2275777317510045098, guid: 7936b15b3b06b4c46ab5ea056ec7e441, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 2275777317510045098, guid: 7936b15b3b06b4c46ab5ea056ec7e441, type: 3}
+      propertyPath: m_Color.r
+      value: 0.78431374
+      objectReference: {fileID: 0}
+    - target: {fileID: 8472723427068522776, guid: 7936b15b3b06b4c46ab5ea056ec7e441, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8472723427068522776, guid: 7936b15b3b06b4c46ab5ea056ec7e441, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5245283
+      objectReference: {fileID: 0}
+    - target: {fileID: 8472723427068522776, guid: 7936b15b3b06b4c46ab5ea056ec7e441, type: 3}
+      propertyPath: m_Color.r
+      value: 0.7842007
+      objectReference: {fileID: 0}
+    - target: {fileID: 8472723427327207149, guid: 7936b15b3b06b4c46ab5ea056ec7e441, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8472723427327207149, guid: 7936b15b3b06b4c46ab5ea056ec7e441, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5245283
+      objectReference: {fileID: 0}
+    - target: {fileID: 8472723427327207149, guid: 7936b15b3b06b4c46ab5ea056ec7e441, type: 3}
+      propertyPath: m_Color.r
+      value: 0.7842007
+      objectReference: {fileID: 0}
+    - target: {fileID: 8472723427978044956, guid: 7936b15b3b06b4c46ab5ea056ec7e441, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 8472723427978044956, guid: 7936b15b3b06b4c46ab5ea056ec7e441, type: 3}
+      propertyPath: m_Color.r
+      value: 0.78431374
+      objectReference: {fileID: 0}
+    - target: {fileID: 8472723428220223171, guid: 7936b15b3b06b4c46ab5ea056ec7e441, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8472723428220223171, guid: 7936b15b3b06b4c46ab5ea056ec7e441, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5245283
+      objectReference: {fileID: 0}
+    - target: {fileID: 8472723428220223171, guid: 7936b15b3b06b4c46ab5ea056ec7e441, type: 3}
+      propertyPath: m_Color.r
+      value: 0.7842007
+      objectReference: {fileID: 0}
+    - target: {fileID: 8472723428335680713, guid: 7936b15b3b06b4c46ab5ea056ec7e441, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8472723428335680713, guid: 7936b15b3b06b4c46ab5ea056ec7e441, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5245283
+      objectReference: {fileID: 0}
+    - target: {fileID: 8472723428335680713, guid: 7936b15b3b06b4c46ab5ea056ec7e441, type: 3}
+      propertyPath: m_Color.r
+      value: 0.7842007
+      objectReference: {fileID: 0}
+    - target: {fileID: 8472723428335680715, guid: 7936b15b3b06b4c46ab5ea056ec7e441, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 743
+      objectReference: {fileID: 0}
     - target: {fileID: 8472723428567424689, guid: 7936b15b3b06b4c46ab5ea056ec7e441, type: 3}
       propertyPath: m_text
       value: 'Kylen Dilligard - Game Programmer

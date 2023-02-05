@@ -111,7 +111,8 @@ public class GameManager : MonoBehaviour
     void EscapeStart()
     {
         SetCursor(true);
-        SceneManager.LoadScene(3);
+        //SceneManager.LoadScene(1);
+        SetState(GameState.Menu);
     }
 
     void IntroStart()

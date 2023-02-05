@@ -53,6 +53,7 @@ MonoBehaviour:
   vines: {fileID: 2823139167742195810}
   vinesGO: {fileID: 3783906077783335069}
   tip: {fileID: 7001597781176955049}
+  damageAmt: 0
   player: {fileID: 0}
   playerController: {fileID: 0}
 --- !u!135 &91278946844945002
@@ -405,7 +406,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 4381126890623860176, guid: 75fab1fa0cbc92f48a19b8943dfafcaf, type: 3}
+  - {fileID: 2100000, guid: 42a8a88d9aa768e49b1839413603da44, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

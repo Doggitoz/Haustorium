@@ -163,8 +163,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2c5bd8db04d72f4fa539543272f97d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletVelocity: 2
-  bulletTimer: 10
+  bulletVelocity: 50
+  bulletTimer: 2
 --- !u!33 &6130054082351950875
 MeshFilter:
   m_ObjectHideFlags: 0
