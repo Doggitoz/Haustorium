@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3362551782809876511}
   - component: {fileID: 1803116136673458106}
   - component: {fileID: 4530906940404056944}
+  - component: {fileID: 4707858697183889957}
   m_Layer: 0
   m_Name: SM_HydroponicsScienceContainer
   m_TagString: Untagged
@@ -88,3 +89,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &4707858697183889957
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2729743961006367397}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8421104200102465310, guid: e7a6fbb56be89b74ab2baf4ae657fc19, type: 3}
