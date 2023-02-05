@@ -403,6 +403,8 @@ MonoBehaviour:
   StartingState: 0
   pauseMenu: {fileID: 4096993633556221700}
   canPause: 1
+  mainMenuTheme: {fileID: 8300000, guid: 2467bd57700bfbc4d925fdde06b23633, type: 3}
+  ambientMusic: {fileID: 0}
 --- !u!1 &3097188177517278898
 GameObject:
   m_ObjectHideFlags: 0

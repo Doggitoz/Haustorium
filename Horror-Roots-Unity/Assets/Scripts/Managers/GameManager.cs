@@ -14,6 +14,9 @@ public class GameManager : MonoBehaviour
     public bool canPause = true;
     public bool isPaused { get; private set; } = false;
 
+    [SerializeField] AudioClip mainMenuTheme;
+    [SerializeField] AudioClip ambientMusic;
+
     public UnityEvent OnGamePause { get; private set; }
 
     #region GameManager Singleton
@@ -77,13 +80,16 @@ public class GameManager : MonoBehaviour
 
     void MenuStart()
     {
+        AudioManager.AM.StopMusic();
         SceneManager.LoadScene(0);
         SetPause(false);
         SetCursor(true);
+        AudioManager.AM.PlayMusic(mainMenuTheme);
     }
 
     void PlayingStart()
     {
+        AudioManager.AM.StopMusic();
         SceneManager.LoadScene(1);
         SetCursor(false);
     }

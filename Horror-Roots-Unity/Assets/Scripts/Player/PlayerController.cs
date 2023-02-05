@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     [Header("Audio")]
     [SerializeField] AudioSource footstepsSource;
     [SerializeField] AudioSource playerEffects;
-    [SerializeField] AudioClip footsteps;
+    [SerializeField] AudioClip[] footsteps;
 
     [Header("Blaster")]
     public Blaster blaster;
@@ -41,7 +41,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] InventorySystem inv;
 
     [Header("Misc")]
+    public float timeBetweenFootsteps = .7f;
     Vector3 spawnLocation;
+    float footstepsTimer = 0f;
 
     
 
@@ -62,6 +64,18 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        switch (playerState)
+        {
+            case PlayerState.Immobile:
+                break;
+            case PlayerState.Slowed:
+                footstepsTimer += Time.deltaTime * slownessMultiplier;
+                break;
+            default:
+                footstepsTimer += Time.deltaTime;
+                break;
+
+        }
         if (transform.position.y < -100f)
         {
             transform.position = spawnLocation;
@@ -107,9 +121,11 @@ public class PlayerController : MonoBehaviour
                 break;
 
         }
-        if (!footstepsSource.isPlaying)
+        if (footstepsTimer > timeBetweenFootsteps)
         {
-            footstepsSource.PlayOneShot(footsteps);
+            footstepsTimer = 0f;
+            int random = Random.Range(0, footsteps.Length);
+            footstepsSource.PlayOneShot(footsteps[random]);
         }
         transform.Translate(movement);
     }
@@ -134,7 +150,7 @@ public class PlayerController : MonoBehaviour
             }
             else if (go.CompareTag("Trigger"))
             {
-                
+                go.GetComponent<TriggerObject>().Trigger();
             }
         }
     }

@@ -211,7 +211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioType: 0
   audioSource: {fileID: 7638642463137093480}
-  localVolume: 0.4
+  localVolume: 0.3
 --- !u!82 &7638642463137093480
 AudioSource:
   m_ObjectHideFlags: 0
@@ -822,7 +822,8 @@ MonoBehaviour:
   fov: 60
   footstepsSource: {fileID: 7638642463137093480}
   playerEffects: {fileID: 8496925748468422331}
-  footsteps: {fileID: 8300000, guid: 3a2f49961a7f7bd4dbfcabc33b33aef8, type: 3}
+  footsteps:
+  - {fileID: 8300000, guid: 5f639b9a37aa18d41a2982f6b0a5cefc, type: 3}
   blaster: {fileID: 6497749527176530487}
   projectilePrefab: {fileID: 6130054082351950884, guid: f9cdb45a36200bf4c8b9a46bf2021f21, type: 3}
   _canShoot: 1

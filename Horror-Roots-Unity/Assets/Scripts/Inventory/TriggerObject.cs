@@ -1,18 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TriggerObject : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public bool oneTimeUse = false;
+    [SerializeField] TriggerEvent triggerEvent;
+    bool hasBeenUsed = false;
+    [System.Serializable]
+    public class TriggerEvent : UnityEvent { }
+
+    public void Trigger()
     {
-        
+        if (oneTimeUse)
+        {
+            if (!hasBeenUsed)
+            {
+                hasBeenUsed = true;
+                triggerEvent.Invoke();
+            }
+        }
+        else
+        {
+            triggerEvent.Invoke();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
