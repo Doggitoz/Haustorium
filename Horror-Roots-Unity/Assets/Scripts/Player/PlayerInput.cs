@@ -48,4 +48,19 @@ public class PlayerInput : MonoBehaviour
         controller.ToggleFlashlight();
     }
 
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        if (!context.started) return;
+        if (!GameManager.GM.canPause) return;
+        
+        if (GameManager.GM.isPaused)
+        {
+            GameManager.GM.SetPause(false);
+        }
+        else
+        {
+            GameManager.GM.SetPause(true);
+        }
+    }
+
 }

@@ -28,12 +28,6 @@ public class PauseMenu : MonoBehaviour
     public void ReturnToMainMenu()
     {
         GameManager.GM.SetState(GameState.Menu);
-        CloseUI();
-    }
-
-    void CloseUI()
-    {
-        this.gameObject.SetActive(false);
     }
 
     public void ExitGame()
@@ -44,8 +38,7 @@ public class PauseMenu : MonoBehaviour
 
     public void ResumeGame()
     {
-        GameManager.GM.SetState(GameState.Playing);
-        CloseUI();
+        GameManager.GM.SetPause(false);
     }
 
     public void MasterSliderUpdate()

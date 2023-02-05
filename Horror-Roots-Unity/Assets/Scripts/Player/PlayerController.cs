@@ -48,8 +48,6 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
         spawnLocation = transform.position;
         playerCam.fieldOfView = fov;
     }
@@ -60,7 +58,6 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = spawnLocation;
         }
-        playerCam.fieldOfView = fov;
     }
 
     #region Player State
@@ -80,6 +77,7 @@ public class PlayerController : MonoBehaviour
     #region Input
     public void Look(Vector2 values)
     {
+        if (GameManager.GM.isPaused) return;
         transform.Rotate(Vector3.up * values.x * Time.deltaTime * sensitivity);
         yPitch = Mathf.Clamp(yPitch + sensitivity * Time.deltaTime * values.y, -maxPitch, maxPitch);
         playerCam.transform.localEulerAngles = new Vector3(-yPitch, playerCam.transform.localEulerAngles.y, 0);
@@ -87,6 +85,7 @@ public class PlayerController : MonoBehaviour
 
     public void Move(Vector2 values)
     {
+        if (GameManager.GM.isPaused) return;
         Vector3 movement = new Vector3(values.x, 0, values.y) * Time.deltaTime * moveSpeed;
         //Switch statement to determine the calculation performed on the players movement speed
         switch (playerState)
@@ -109,23 +108,16 @@ public class PlayerController : MonoBehaviour
 
     public void ToggleFlashlight()
     {
+        if (GameManager.GM.isPaused) return;
         flashlight.ToggleFlashlight();
-    }
-
-    #endregion
-
-    public void PullTo(Vector3 destination, float force)
-    {
-        rb.AddForce((destination - transform.position).normalized * force, ForceMode.Force);
     }
 
     #region Blaster
     public void Shoot()
     {
-        if (!_canShoot)
-        {
-            return;
-        }
+        if (!_canShoot) return;
+        if (GameManager.GM.isPaused) return;
+
         //Would like to add a simple timer here
         if (blaster.Shoot())
         {
@@ -145,6 +137,15 @@ public class PlayerController : MonoBehaviour
         _canShoot = value;
     }
     #endregion
+
+    #endregion
+
+    public void PullTo(Vector3 destination, float force)
+    {
+        rb.AddForce((destination - transform.position).normalized * force, ForceMode.Force);
+    }
+
+    
 
     #region Health
     

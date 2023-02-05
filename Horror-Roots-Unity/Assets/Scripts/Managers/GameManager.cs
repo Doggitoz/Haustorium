@@ -9,9 +9,10 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] GameState StartingState;
     GameState _currState;
-
     [SerializeField] GameObject pauseMenu;
-    public bool canPause { get; private set; }
+
+    public bool canPause = true;
+    public bool isPaused { get; private set; } = false;
 
     public UnityEvent OnGamePause { get; private set; }
 
@@ -41,6 +42,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        SetPause(false);
         SetState(StartingState);
     }
 
@@ -60,11 +62,11 @@ public class GameManager : MonoBehaviour
             case GameState.Playing:
                 PlayingStart();
                 break;
-            case GameState.Paused:
-                PauseStart();
-                break;
             case GameState.Death:
                 DeathStart();
+                break;
+            case GameState.Escaped:
+                EscapeStart();
                 break;
         }
 
@@ -75,17 +77,15 @@ public class GameManager : MonoBehaviour
 
     void MenuStart()
     {
-
+        SceneManager.LoadScene(0);
+        SetPause(false);
+        SetCursor(true);
     }
 
     void PlayingStart()
     {
-        SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(1));
-    }
-
-    void PauseStart()
-    {
-        pauseMenu.SetActive(true);
+        SceneManager.LoadScene(1);
+        SetCursor(false);
     }
 
     void DeathStart()
@@ -93,12 +93,44 @@ public class GameManager : MonoBehaviour
 
     }
 
+    void EscapeStart()
+    {
+        SetCursor(true);
+    }
+
     #endregion
 
+    #region Pausing
+
+    public void SetPause(bool val)
+    {
+        if (val == isPaused) return;
+        isPaused = val;
+        OnGamePause.Invoke();
+        pauseMenu.SetActive(val);
+
+        SetCursor(val);
+    }
+
+    #endregion
+
+    public void SetCursor(bool val)
+    {
+        if (val)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+    }
 }
 
 [System.Serializable]
 public enum GameState
 {
-    Menu, Playing, Paused, Death
+    Menu, Playing, Death, Escaped
 }
