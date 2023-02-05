@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     [Header("Blaster")]
     public Blaster blaster;
     [SerializeField] GameObject projectilePrefab;
+    [SerializeField] AudioClip shootSfx;
     
     [SerializeField] bool _canShoot = true;
 
@@ -164,7 +165,7 @@ public class PlayerController : MonoBehaviour
         if (blaster.Shoot())
         {
             //Spawn projectile
-
+            AudioManager.AM.PlayEffect(shootSfx);
             GameObject go = Instantiate(projectilePrefab);
             //Projectile proj = go.GetComponent<Projectile>(); //I dont think we need this anymore... idk
             go.transform.position = blaster.projectileLocation.transform.position;

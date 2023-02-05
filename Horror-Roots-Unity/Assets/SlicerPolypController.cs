@@ -39,7 +39,7 @@ public class SlicerPolypController : MonoBehaviour
     public void AggroState()
     {
         //THIS IS REALLY DUMB FOR LATER
-        playerController.SetPlayerState(PlayerState.Immobile);
+        //playerController.SetPlayerState(PlayerState.Immobile);
         tip.transform.position = tip.transform.position + (transform.position - player.transform.position).normalized * Time.deltaTime;
         playerController.PullTo(tip.transform.position, 20f);
 
