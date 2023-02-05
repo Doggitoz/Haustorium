@@ -28,3 +28,9 @@ public class TriggerObject : MonoBehaviour
     }
 
 }
+
+[System.Serializable]
+public enum FlagType
+{
+    PowerCell, Scrubber, WeedEx
+}

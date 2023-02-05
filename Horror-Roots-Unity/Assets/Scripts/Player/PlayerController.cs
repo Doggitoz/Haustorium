@@ -45,9 +45,6 @@ public class PlayerController : MonoBehaviour
     Vector3 spawnLocation;
     float footstepsTimer = 0f;
 
-    
-
-
     //Components
     Rigidbody rb;
 
@@ -144,7 +141,7 @@ public class PlayerController : MonoBehaviour
             GameObject go = hit.collider.gameObject;
             if (go.CompareTag("Item"))
             {
-          
+                
                 inv.Add(go.GetComponent<ItemObject>().referenceItem);
                 Destroy(go);
             }

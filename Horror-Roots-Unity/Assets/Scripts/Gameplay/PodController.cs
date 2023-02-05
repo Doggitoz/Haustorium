@@ -18,16 +18,19 @@ public class PodController : MonoBehaviour
         if (!fixedPower)
         {
             //Have logic to display error message PowerFailureMessage
+            Debug.Log("Power failure");
             return;
         }
         if (!clearedObstruction)
         {
             //Have logic to display error message TubeObstructionMessage
+            Debug.Log("Escape tube obstruction");
             return;
         }
         if (!replacedScrubber)
         {
             //Have logic to display error message ReplaceScrubberMessage
+            Debug.Log("No air circulation");
             return;
         }
         

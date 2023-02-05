@@ -442,7 +442,6 @@ MonoBehaviour:
   max: 20
   recharge: 0.5
   cooldown: 0.1
-  canShoot: 0
   projectileLocation: {fileID: 6497749527419983366}
 --- !u!1 &6497749527419983366
 GameObject:
@@ -834,6 +833,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 55
   inv: {fileID: 7015165010676622991}
+  timeBetweenFootsteps: 0.7
 --- !u!136 &6497749528273135933
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -956,7 +956,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1.13
+  m_Intensity: 1.4
   m_Range: 10
   m_SpotAngle: 96.01917
   m_InnerSpotAngle: 28.404001

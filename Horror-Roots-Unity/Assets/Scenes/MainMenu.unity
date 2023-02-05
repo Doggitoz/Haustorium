@@ -329,6 +329,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8472723428567424689, guid: 7936b15b3b06b4c46ab5ea056ec7e441, type: 3}
+      propertyPath: m_text
+      value: 'Kylen Dilligard - Game Programmer
+
+        Ava Fritts - Artist and
+        3D Animator
+
+        Matthew Kern - Write and Project Manager
+
+        Bridget
+        Kurr - Artist and Level Designer
+
+        Benjamin Mills - 3D Modeler
+
+        Jeff
+        Ran - Voice Acting
+
+        Sam Taylor - 2D and Concept Artist
+
+        Theo
+        Ward - Audio Designer
+
+        Coleton Wheeler - Game Programmer'
+      objectReference: {fileID: 0}
     - target: {fileID: 8472723428740691970, guid: 7936b15b3b06b4c46ab5ea056ec7e441, type: 3}
       propertyPath: m_Pivot.x
       value: 0
