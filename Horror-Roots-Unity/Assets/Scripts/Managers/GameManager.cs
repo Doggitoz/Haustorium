@@ -102,7 +102,7 @@ public class GameManager : MonoBehaviour
 
     void DeathStart()
     {
-
+        PlayingStart();
     }
 
     void EscapeStart()
