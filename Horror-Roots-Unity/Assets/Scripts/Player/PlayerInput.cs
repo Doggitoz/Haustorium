@@ -55,6 +55,7 @@ public class PlayerInput : MonoBehaviour
         
         if (GameManager.GM.isPaused)
         {
+            SaveData.DATA.SaveToJson();
             GameManager.GM.SetPause(false);
         }
         else

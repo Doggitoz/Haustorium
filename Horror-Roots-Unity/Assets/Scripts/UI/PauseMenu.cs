@@ -39,6 +39,7 @@ public class PauseMenu : MonoBehaviour
     public void ResumeGame()
     {
         GameManager.GM.SetPause(false);
+        SaveData.DATA.SaveToJson();
     }
 
     public void MasterSliderUpdate()
