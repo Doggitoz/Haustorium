@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8728574691867095088}
   - component: {fileID: 7682009757895109706}
   - component: {fileID: 205160891948879724}
+  - component: {fileID: 7135371340789899675}
   m_Layer: 0
   m_Name: SM_DoorSection1
   m_TagString: Untagged
@@ -84,6 +85,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7135371340789899675
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2987533325486115088}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6562811285763390017, guid: 0e5350f738b11e543a07799e2c3611cc, type: 3}
 --- !u!1 &3337774282744261970
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,6 +110,9 @@ GameObject:
   - component: {fileID: 2673441262947252200}
   - component: {fileID: 1348303893072230477}
   - component: {fileID: 3842367038220160135}
+  - component: {fileID: 3424676713990262193}
+  - component: {fileID: 2779354848617359687}
+  - component: {fileID: 4660156317110317659}
   m_Layer: 0
   m_Name: SM_WallSectionDoor NEW
   m_TagString: Untagged
@@ -170,6 +188,45 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3424676713990262193
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3337774282744261970}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.02, y: 0.019999996, z: 0.002607964}
+  m_Center: {x: -0.01, y: 0.009999998, z: -0.0017}
+--- !u!65 &2779354848617359687
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3337774282744261970}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.01, y: 0.019999996, z: 0.026079644}
+  m_Center: {x: -0.0005, y: 0.009999998, z: 0.012649351}
+--- !u!65 &4660156317110317659
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3337774282744261970}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.01, y: 0.019999996, z: 0.026079644}
+  m_Center: {x: -0.02, y: 0.009999998, z: 0.012649351}
 --- !u!1 &5802132907481686771
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,6 +238,7 @@ GameObject:
   - component: {fileID: 1146677833839714028}
   - component: {fileID: 5417854832706753414}
   - component: {fileID: 8705587648077441148}
+  - component: {fileID: 6763890469857754753}
   m_Layer: 0
   m_Name: SM_DoorSection2
   m_TagString: Untagged
@@ -254,3 +312,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6763890469857754753
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5802132907481686771}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8528273163944216920, guid: 0e5350f738b11e543a07799e2c3611cc, type: 3}
