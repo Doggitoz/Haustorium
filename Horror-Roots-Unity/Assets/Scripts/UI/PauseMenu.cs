@@ -27,28 +27,18 @@ public class PauseMenu : MonoBehaviour
 
     public void ReturnToMainMenu()
     {
-        ClickSound();
-        CloseUI();
-        GameManager.GM.ChangeState(GameState.Menu);
-    }
-
-    void CloseUI()
-    {
-        GameManager.GM.Paused = false;
-        this.gameObject.SetActive(false);
+        GameManager.GM.SetState(GameState.Menu);
     }
 
     public void ExitGame()
     {
-        ClickSound();
         SaveData.DATA.SaveToJson();
         Application.Quit();
     }
 
     public void ResumeGame()
     {
-        ClickSound();
-        CloseUI();
+        GameManager.GM.SetPause(false);
     }
 
     public void MasterSliderUpdate()
@@ -67,11 +57,6 @@ public class PauseMenu : MonoBehaviour
     public void UISliderUpdate()
     {
         AudioManager.AM.SetUIVolume(UISlider.value);
-    }
-
-    public void ClickSound()
-    {
-        AudioManager.AM.PlayUI(Click);
     }
 
 }

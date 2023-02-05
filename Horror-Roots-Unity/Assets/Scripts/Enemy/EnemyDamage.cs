@@ -4,11 +4,8 @@ using UnityEngine;
 
 public class EnemyDamage : MonoBehaviour
 {
-
-    
-    public PlayerHealth playerHealth;
     public float damageTaken = .10f;
-    float damage; 
+    float damage;
 
     // Start is called before the first frame update
     void Start()
@@ -25,9 +22,10 @@ public class EnemyDamage : MonoBehaviour
     private void OnCollisionStay(Collision collision)
     {
        if(collision.gameObject.tag == "Player")
-        {
+       {
+            PlayerController controller = collision.gameObject.GetComponent<PlayerController>();
             damage = Mathf.Min(damage + damageTaken * Time.deltaTime, 100.0f);
-            playerHealth.TakeDamage(damageTaken);
-        }
+            controller.DealDamage(damageTaken);
+       }
     }
 }

@@ -9,6 +9,7 @@ public class Blaster : MonoBehaviour
     [SerializeField] int max;
     [Tooltip("Per second")] [SerializeField] float recharge;
     [SerializeField] float cooldown;
+    [SerializeField] bool canShoot;
 
     public GameObject projectileLocation;
 
@@ -37,6 +38,10 @@ public class Blaster : MonoBehaviour
     //Returns T/F on whether the shoot worked (not on cooldown)
     public bool Shoot()
     {
+        if (!canShoot)
+        {
+            return false;
+        }
         if (energy <= 0f)
         {
             return false;
@@ -58,6 +63,11 @@ public class Blaster : MonoBehaviour
     public float GetEnergyPercentage()
     {
         return energy / max;
+    }
+
+    public void SetCanShoot(bool val)
+    {
+        canShoot = val;
     }
 
 }

@@ -1,13 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
 
     [SerializeField] GameState StartingState;
     GameState _currState;
-    public bool Paused = false;
+    [SerializeField] GameObject pauseMenu;
+
+    public bool canPause = true;
+    public bool isPaused { get; private set; } = false;
+
+    public UnityEvent OnGamePause { get; private set; }
 
     #region GameManager Singleton
     static private GameManager gm;
@@ -30,32 +37,36 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         CheckManagerInScene();
+        OnGamePause = new UnityEvent();
     }
 
     void Start()
     {
-        ChangeState(StartingState);
-    }
-
-    
-    void Update()
-    {
-        
+        SetPause(false);
+        SetState(StartingState);
     }
 
     #region GameState Management
 
     public GameState GetState() { return _currState; }
 
-    public void ChangeState(GameState newState)
+    public void SetState(GameState newState)
     {
         _currState = newState;
 
         switch (_currState)
         {
             case GameState.Menu:
+                MenuStart();
                 break;
             case GameState.Playing:
+                PlayingStart();
+                break;
+            case GameState.Death:
+                DeathStart();
+                break;
+            case GameState.Escaped:
+                EscapeStart();
                 break;
         }
 
@@ -66,20 +77,60 @@ public class GameManager : MonoBehaviour
 
     void MenuStart()
     {
-
+        SceneManager.LoadScene(0);
+        SetPause(false);
+        SetCursor(true);
     }
 
     void PlayingStart()
     {
+        SceneManager.LoadScene(1);
+        SetCursor(false);
+    }
 
+    void DeathStart()
+    {
+
+    }
+
+    void EscapeStart()
+    {
+        SetCursor(true);
     }
 
     #endregion
 
+    #region Pausing
+
+    public void SetPause(bool val)
+    {
+        if (val == isPaused) return;
+        isPaused = val;
+        OnGamePause.Invoke();
+        pauseMenu.SetActive(val);
+
+        SetCursor(val);
+    }
+
+    #endregion
+
+    public void SetCursor(bool val)
+    {
+        if (val)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+    }
 }
 
 [System.Serializable]
 public enum GameState
 {
-    Menu, Playing
+    Menu, Playing, Death, Escaped
 }

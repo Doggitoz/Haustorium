@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class AudioManager : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class AudioManager : MonoBehaviour
     float MusicVolume = 1.0f;
     float UIVolume = 1.0f;
     float EffectVolume = 1.0f;
+
+    public UnityEvent UpdateAudioControls { get; private set; }
 
     #region AudioManager Singleton
     static private AudioManager am;
@@ -34,6 +37,7 @@ public class AudioManager : MonoBehaviour
     private void Awake()
     {
         CheckAudioManagerIsInScene();
+        UpdateAudioControls = new UnityEvent();
     }
 
     #region Play/Stop Audio Public Methods
@@ -85,6 +89,7 @@ public class AudioManager : MonoBehaviour
         MusicSource.volume = MasterVolume * MusicVolume;
         UISource.volume = MasterVolume * UIVolume;
         EffectsSource.volume = MasterVolume * EffectVolume;
+        UpdateAudioControls.Invoke();
     }
 
     public void SetMusicVolume(float volume)
@@ -92,6 +97,7 @@ public class AudioManager : MonoBehaviour
         MusicVolume = volume;
         SaveData.DATA.mem.MusicVolume = volume;
         MusicSource.volume = MasterVolume * MusicVolume;
+        UpdateAudioControls.Invoke();
     }
 
     public void SetUIVolume(float volume)
@@ -99,6 +105,7 @@ public class AudioManager : MonoBehaviour
         UIVolume = volume;
         SaveData.DATA.mem.UIVolume = volume;
         UISource.volume = MasterVolume * UIVolume;
+        UpdateAudioControls.Invoke();
     }
 
     public void SetEffectsVolume(float volume)
@@ -106,6 +113,7 @@ public class AudioManager : MonoBehaviour
         EffectVolume = volume;
         SaveData.DATA.mem.EffectsVolume = volume;
         EffectsSource.volume = MasterVolume * EffectVolume;
+        UpdateAudioControls.Invoke();
     }
     #endregion
 
