@@ -169,9 +169,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ListOfClips:
   - {fileID: 8300000, guid: 8a133601a5c3d1cc993485248de3e3d5, type: 3}
-  - {fileID: 8300000, guid: 60b06766355380d9da5c6e8b64c3b96c, type: 3}
-  - {fileID: 8300000, guid: 60b06766355380d9da5c6e8b64c3b96c, type: 3}
-  - {fileID: 8300000, guid: 60b06766355380d9da5c6e8b64c3b96c, type: 3}
   background: {fileID: 2046577372}
   source: {fileID: 1736143545}
 --- !u!1 &506381333

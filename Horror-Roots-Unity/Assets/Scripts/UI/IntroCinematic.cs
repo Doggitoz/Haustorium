@@ -23,23 +23,27 @@ public class IntroCinematic : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            GameManager.GM.SetState(GameState.Playing);
+        }
         if (finished)
         {
+            background.color = new Color(0, 0, 0, (timer / timeToFade));
             timer += Time.deltaTime;
-            background.color = new Color(0, 0, 0, 255 * (timer / timeToFade)); 
-
-            if (timer > timeToFade)
+            if (timer > timeToFade + 1f)
             {
                 //START PLAYING STATE
                 GameManager.GM.SetState(GameState.Playing);
             }
             return;
         }
-        if (!source.isPlaying)
+        else if (!source.isPlaying)
         {
             if (indexInCinematic == ListOfClips.Length)
             {
                 finished = true;
+                return;
             }
             source.PlayOneShot(ListOfClips[indexInCinematic]);
             indexInCinematic++;
