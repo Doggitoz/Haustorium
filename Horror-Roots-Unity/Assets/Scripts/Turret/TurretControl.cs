@@ -9,7 +9,7 @@ public class TurretControl : MonoBehaviour
     public float howClose;
     public Transform head, barrel;
     public GameObject _projectile;
-    public int _projectileSpeed = 1500;
+    public int _projectileSpeed;
     public float fireRate;
     float nextFire;
     // Start is called before the first frame update
