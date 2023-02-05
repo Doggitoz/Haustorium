@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4276766155533565846}
   - component: {fileID: 933929291110068275}
   - component: {fileID: 3103275860680131833}
+  - component: {fileID: 6711846698278145444}
   m_Layer: 0
   m_Name: SM_HydroponicsBoxOpen
   m_TagString: Untagged
@@ -88,3 +89,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6711846698278145444
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3463814038776833324}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.019829793, y: 0.0070936517, z: 0.014184319}
+  m_Center: {x: 0.003971477, y: -0.00009638815, z: 0.0070921597}

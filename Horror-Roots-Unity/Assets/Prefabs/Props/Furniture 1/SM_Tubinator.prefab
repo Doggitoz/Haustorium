@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2233049800604120858}
   - component: {fileID: 2977646139115632831}
   - component: {fileID: 1060120708058451061}
+  - component: {fileID: 2424060293482025041}
   m_Layer: 0
   m_Name: SM_Tubinator
   m_TagString: Untagged
@@ -86,6 +87,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2424060293482025041
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564634024342957472}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7153339739646353748, guid: 268bd856b40ca7c4db1ef1086ba2c5aa, type: 3}
 --- !u!1 &7336767282595112293
 GameObject:
   m_ObjectHideFlags: 0

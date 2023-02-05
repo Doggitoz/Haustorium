@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4304529626776663068}
   - component: {fileID: 870067151487499193}
   - component: {fileID: 3168262817450364787}
+  - component: {fileID: 583344391060469106}
   m_Layer: 0
   m_Name: SM_PowerCell
   m_TagString: Untagged
@@ -86,3 +87,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &583344391060469106
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3528308964579782310}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8136081821911658630, guid: d1fa884eb231d104db0248b87f45e10d, type: 3}
