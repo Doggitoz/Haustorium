@@ -77,6 +77,9 @@ public class GameManager : MonoBehaviour
             case GameState.Escaped:
                 EscapeStart();
                 break;
+            case GameState.Intro:
+                IntroStart();
+                break;
         }
 
     }
@@ -96,7 +99,7 @@ public class GameManager : MonoBehaviour
     void PlayingStart()
     {
         AudioManager.AM.StopMusic();
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
         SetCursor(false);
     }
 
@@ -108,7 +111,13 @@ public class GameManager : MonoBehaviour
     void EscapeStart()
     {
         SetCursor(true);
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
+    }
+
+    void IntroStart()
+    {
+        AudioManager.AM.StopMusic();
+        SceneManager.LoadScene(1);
     }
 
     #endregion
@@ -194,5 +203,5 @@ public class GameManager : MonoBehaviour
 [System.Serializable]
 public enum GameState
 {
-    Menu, Playing, Death, Escaped
+    Menu, Intro, Playing, Death, Escaped
 }

@@ -166,7 +166,7 @@ public class PlayerController : MonoBehaviour
             //Spawn projectile
 
             GameObject go = Instantiate(projectilePrefab);
-            Projectile proj = go.GetComponent<Projectile>(); //I dont think we need this anymore... idk
+            //Projectile proj = go.GetComponent<Projectile>(); //I dont think we need this anymore... idk
             go.transform.position = blaster.projectileLocation.transform.position;
             Vector3 temp = transform.rotation.eulerAngles;
             temp.x = playerCam.transform.rotation.eulerAngles.x;

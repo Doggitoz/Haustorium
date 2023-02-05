@@ -163,8 +163,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2c5bd8db04d72f4fa539543272f97d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletVelocity: 50
-  bulletTimer: 2
+  bulletVelocity: 2
+  bulletTimer: 10
 --- !u!33 &6130054082351950875
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -223,7 +223,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6130054082351950884}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
