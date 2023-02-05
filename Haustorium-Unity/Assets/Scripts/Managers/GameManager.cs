@@ -99,6 +99,9 @@ public class GameManager : MonoBehaviour
 
     void PlayingStart()
     {
+        hasPowerCell = false;
+        hasScrubber = false;
+        hasWeedEx = false;
         AudioManager.AM.StopMusic();
 
         SceneManager.LoadScene(2);
