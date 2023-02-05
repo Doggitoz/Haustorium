@@ -25,9 +25,10 @@ public class SlicerPolypController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (GameManager.GM.GetState() != GameState.Playing) return;
         if (aggro)
         {
+            damageTimer += Time.deltaTime;
             AggroState();
         }
         else
@@ -42,6 +43,11 @@ public class SlicerPolypController : MonoBehaviour
         //playerController.SetPlayerState(PlayerState.Immobile);
         tip.transform.position = tip.transform.position + (transform.position - player.transform.position).normalized * Time.deltaTime;
         playerController.PullTo(tip.transform.position, 20f);
+        if (damageTimer > .5f)
+        {
+            damageTimer = 0f;
+            playerController.DealDamage(5f);
+        }
 
     }
 
