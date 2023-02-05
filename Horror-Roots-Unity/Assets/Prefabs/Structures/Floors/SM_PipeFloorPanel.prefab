@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7698321362906034208}
   - component: {fileID: 6735755466403463045}
   - component: {fileID: 8835713517149440847}
+  - component: {fileID: -5009951272137168702}
   m_Layer: 0
   m_Name: SM_PipeFloorPanel
   m_TagString: Untagged
@@ -85,3 +86,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-5009951272137168702
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7034128736985344666}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2460851417159983200, guid: d7175b936a33e2b4fbfd86f724b2c337, type: 3}

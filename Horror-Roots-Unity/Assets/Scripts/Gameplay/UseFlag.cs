@@ -10,11 +10,9 @@ public class UseFlag : MonoBehaviour
 
     public void TryUsePickup()
     {   
-        Debug.Log("try place");
         switch (type)
         {
             case FlagType.PowerCell:
-                Debug.Log("try place cell");
                 if (GameManager.GM.UsePowerCell())
                 {
                     pod.FixPower();
@@ -22,7 +20,6 @@ public class UseFlag : MonoBehaviour
                 }
                 break;
             case FlagType.Scrubber:
-                Debug.Log("try place scrubber");
                 if (GameManager.GM.UseScrubber())
                 {
                     pod.ReplaceScrubber();
@@ -30,7 +27,6 @@ public class UseFlag : MonoBehaviour
                 }
                 break;
             case FlagType.WeedEx:
-                Debug.Log("try place weedex");
                 if (GameManager.GM.UseWeedEx())
                 {
                     pod.ClearObstruction();

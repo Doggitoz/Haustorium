@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1509835892014683556}
   - component: {fileID: 2547867696803125761}
   - component: {fileID: 342044195205443275}
+  - component: {fileID: -1257579935682980412}
   m_Layer: 0
   m_Name: SM_PipeFloorPanelStop
   m_TagString: Untagged
@@ -85,3 +86,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-1257579935682980412
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2287779210361294622}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3334696214736324736, guid: 0205fb8f3f58bc642ad85f2752d0b3fb, type: 3}

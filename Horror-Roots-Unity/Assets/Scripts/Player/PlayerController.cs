@@ -139,14 +139,16 @@ public class PlayerController : MonoBehaviour
         if (Physics.Raycast(playerCam.transform.position, playerCam.transform.TransformDirection(Vector3.forward), out hit, reach, InteractLayerMask))
         {
             GameObject go = hit.collider.gameObject;
+            Debug.Log("trying to interact with: " + go.name);
             if (go.CompareTag("Item"))
             {
-                
+                Debug.Log("Interacting with item");
                 inv.Add(go.GetComponent<ItemObject>().referenceItem);
                 Destroy(go);
             }
             else if (go.CompareTag("Trigger"))
             {
+                Debug.Log("Interacting with trigger");
                 go.GetComponent<TriggerObject>().Trigger();
             }
         }

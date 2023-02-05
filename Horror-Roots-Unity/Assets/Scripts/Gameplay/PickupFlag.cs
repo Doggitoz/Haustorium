@@ -5,7 +5,7 @@ using UnityEngine;
 public class PickupFlag : MonoBehaviour
 {
     [SerializeField] FlagType pickup;
-    public void TryPickupCell()
+    public void TryPickup()
     {
         switch (pickup)
         {

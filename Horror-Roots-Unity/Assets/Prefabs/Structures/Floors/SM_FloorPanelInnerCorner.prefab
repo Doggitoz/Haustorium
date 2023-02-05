@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3493772117329590648}
   - component: {fileID: 563940268149520093}
   - component: {fileID: 2321451566617838103}
+  - component: {fileID: -6000817938291427887}
   m_Layer: 0
   m_Name: SM_FloorPanelInnerCorner
   m_TagString: Untagged
@@ -84,3 +85,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-6000817938291427887
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4267037047457866690}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4769815925565965043, guid: 3e188e62d557526478127c6c9a48b6d7, type: 3}
