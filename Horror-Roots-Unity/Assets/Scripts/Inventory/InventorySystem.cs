@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class InventorySystem : MonoBehaviour
 {
+    public static InventorySystem current;
     [SerializeField] private Dictionary<InventoryItemData, InventoryItem> m_itemDictionary;
     [SerializeField] public List<InventoryItem> inventory { get; private set; }
 
@@ -11,6 +13,16 @@ public class InventorySystem : MonoBehaviour
     {
         inventory = new List<InventoryItem>();
         m_itemDictionary = new Dictionary<InventoryItemData, InventoryItem>();
+        current = this;
+    }
+
+    public event Action onInventoryChangedEvent;
+    public void InventoryTriggerEnter()
+    {
+        if (onInventoryChangedEvent != null)
+        {
+            onInventoryChangedEvent();
+        }
     }
 
     public void Add(InventoryItemData referenceData)

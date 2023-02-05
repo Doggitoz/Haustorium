@@ -43,6 +43,8 @@ public class PlayerController : MonoBehaviour
     [Header("Misc")]
     Vector3 spawnLocation;
 
+    
+
 
     //Components
     Rigidbody rb;
@@ -126,6 +128,7 @@ public class PlayerController : MonoBehaviour
             GameObject go = hit.collider.gameObject;
             if (go.CompareTag("Item"))
             {
+          
                 inv.Add(go.GetComponent<ItemObject>().referenceItem);
                 Destroy(go);
             }
