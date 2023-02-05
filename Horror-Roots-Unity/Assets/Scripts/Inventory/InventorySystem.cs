@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class InventorySystem : MonoBehaviour
 {
-    private Dictionary<InventoryItemData, InventoryItem> m_itemDictionary;
-    public List<InventoryItem> inventory { get; private set; }
+    [SerializeField] private Dictionary<InventoryItemData, InventoryItem> m_itemDictionary;
+    [SerializeField] public List<InventoryItem> inventory { get; private set; }
 
     private void Awake()
     {

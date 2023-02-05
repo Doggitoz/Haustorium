@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     [Header("Blaster")]
     public Blaster blaster;
     [SerializeField] GameObject projectilePrefab;
-    public LayerMask ProjectileLayerMask;
+    
     [SerializeField] bool _canShoot = true;
 
     [Header("Flashlight")]
@@ -35,8 +35,14 @@ public class PlayerController : MonoBehaviour
     [Header("Health")]
     [SerializeField] PlayerHealth health;
 
+    [Header("Inventory")]
+    public float reach;
+    public LayerMask InteractLayerMask;
+    [SerializeField] InventorySystem inv;
+
     [Header("Misc")]
     Vector3 spawnLocation;
+
 
     //Components
     Rigidbody rb;
@@ -110,6 +116,24 @@ public class PlayerController : MonoBehaviour
     {
         if (GameManager.GM.isPaused) return;
         flashlight.ToggleFlashlight();
+    }
+
+    public void Interact()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(playerCam.transform.position, playerCam.transform.TransformDirection(Vector3.forward), out hit, reach, InteractLayerMask))
+        {
+            GameObject go = hit.collider.gameObject;
+            if (go.CompareTag("Item"))
+            {
+                inv.Add(go.GetComponent<ItemObject>().referenceItem);
+                Destroy(go);
+            }
+            else if (go.CompareTag("Trigger"))
+            {
+                
+            }
+        }
     }
 
     #region Blaster

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 'InventoryItem_Part 1 '
   displayName: Part 1
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 0ccc508108fa6ed4fa11b4a467d7f609, type: 3}
   prefab: {fileID: 5601361833449046484, guid: 9bbadc17846863e4db51397d5791f6b1, type: 3}

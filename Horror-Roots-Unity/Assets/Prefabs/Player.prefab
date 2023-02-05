@@ -1,5 +1,49 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1531505632821314021
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1929193689608127418}
+  - component: {fileID: 7015165010676622991}
+  m_Layer: 3
+  m_Name: Inventory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1929193689608127418
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531505632821314021}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6497749528273135938}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7015165010676622991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531505632821314021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d287c2c898cc6b4ca57c39499f72754, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2882459523601073907
 GameObject:
   m_ObjectHideFlags: 0
@@ -682,6 +726,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: c93fed2c-ac83-4825-9f6f-1a07b3abd5c4
     m_ActionName: Default/Pause[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6497749527663963908}
+        m_TargetAssemblyTypeName: PlayerInput, Assembly-CSharp
+        m_MethodName: OnInteract
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 0e37d482-9a90-457e-a065-b0a775c727e4
+    m_ActionName: Default/Interact[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Default
@@ -723,6 +783,7 @@ Transform:
   - {fileID: 6497749527610235310}
   - {fileID: 6497749527663963910}
   - {fileID: 1037402301490200563}
+  - {fileID: 1929193689608127418}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -764,12 +825,14 @@ MonoBehaviour:
   footsteps: {fileID: 8300000, guid: 3a2f49961a7f7bd4dbfcabc33b33aef8, type: 3}
   blaster: {fileID: 6497749527176530487}
   projectilePrefab: {fileID: 6130054082351950884, guid: f9cdb45a36200bf4c8b9a46bf2021f21, type: 3}
-  ProjectileLayerMask:
-    serializedVersion: 2
-    m_Bits: 72
   _canShoot: 1
   flashlight: {fileID: 2538520889458809699}
   health: {fileID: 2739690011936583768}
+  reach: 3
+  InteractLayerMask:
+    serializedVersion: 2
+    m_Bits: 55
+  inv: {fileID: 7015165010676622991}
 --- !u!136 &6497749528273135933
 CapsuleCollider:
   m_ObjectHideFlags: 0

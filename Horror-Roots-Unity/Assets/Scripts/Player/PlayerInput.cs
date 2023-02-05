@@ -63,4 +63,10 @@ public class PlayerInput : MonoBehaviour
         }
     }
 
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        if (!context.started) return;
+        controller.Interact();
+    }
+
 }
