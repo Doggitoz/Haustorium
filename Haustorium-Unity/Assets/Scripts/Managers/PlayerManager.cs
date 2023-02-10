@@ -41,6 +41,7 @@ public class PlayerManager : MonoBehaviour
         Player = Instantiate(PlayerPrefab);
         PlayerPrefab.transform.position = SpawnPos;
         Controller = Player.GetComponent<PlayerController>();
+        Player.name = "Player";
     }
 
 }
