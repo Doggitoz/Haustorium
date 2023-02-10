@@ -2,25 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class Projectile : MonoBehaviour
 {
     float timer = 0f;
     [SerializeField] float bulletVelocity;
     [SerializeField] float bulletTimer = 10f;
+    Rigidbody rb;
 
-
-    public void Init(Vector3 destination)
+    private void Awake()
     {
-
+        rb = GetComponent<Rigidbody>();
     }
-
 
     void Update()
     {
         timer += Time.deltaTime;
         if (timer > bulletTimer)
             DestroyProjectile();
-        transform.position += transform.TransformDirection(Vector3.forward) * Time.deltaTime * bulletVelocity;
+    }
+
+    public void Init()
+    {
+        rb.AddForce(transform.TransformDirection(Vector3.forward) * bulletVelocity, ForceMode.Impulse);
     }
 
     void DestroyProjectile()
@@ -30,7 +34,6 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("collided");
         DestroyProjectile();
     }
 }
