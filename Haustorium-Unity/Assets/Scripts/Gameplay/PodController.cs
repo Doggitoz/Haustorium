@@ -35,7 +35,7 @@ public class PodController : MonoBehaviour
         }
         
         Debug.Log("Escaped!");
-        GameManager.GM.SetState(GameState.Escaped);
+        GameManager.Instance.SetState(GameState.Escaped);
     }
 
     public void ClearObstruction()

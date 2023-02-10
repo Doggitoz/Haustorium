@@ -97,7 +97,7 @@ public class PlayerController : MonoBehaviour
     #region Input
     public void Look(Vector2 values)
     {
-        if (GameManager.GM.isPaused) return;
+        if (GameManager.Instance.isPaused) return;
         transform.Rotate(Vector3.up * values.x * Time.deltaTime * sensitivity);
         yPitch = Mathf.Clamp(yPitch + sensitivity * Time.deltaTime * values.y, -maxPitch, maxPitch);
         playerCam.transform.localEulerAngles = new Vector3(-yPitch, playerCam.transform.localEulerAngles.y, 0);
@@ -105,7 +105,7 @@ public class PlayerController : MonoBehaviour
 
     public void Move(Vector2 values)
     {
-        if (GameManager.GM.isPaused) return;
+        if (GameManager.Instance.isPaused) return;
         Vector3 movement = new Vector3(values.x, 0, values.y) * Time.deltaTime * moveSpeed;
         //Switch statement to determine the calculation performed on the players movement speed
         switch (playerState)
@@ -130,7 +130,7 @@ public class PlayerController : MonoBehaviour
 
     public void ToggleFlashlight()
     {
-        if (GameManager.GM.isPaused) return;
+        if (GameManager.Instance.isPaused) return;
         flashlight.ToggleFlashlight();
     }
 
@@ -159,13 +159,13 @@ public class PlayerController : MonoBehaviour
     public void Shoot()
     {
         if (!_canShoot) return;
-        if (GameManager.GM.isPaused) return;
+        if (GameManager.Instance.isPaused) return;
 
         //Would like to add a simple timer here
         if (blaster.Shoot())
         {
             //Spawn projectile
-            AudioManager.AM.PlayEffect(shootSfx);
+            AudioManager.Instance.PlayEffect(shootSfx);
             GameObject go = Instantiate(projectilePrefab);
             //Projectile proj = go.GetComponent<Projectile>(); //I dont think we need this anymore... idk
             go.transform.position = blaster.projectileLocation.transform.position;
@@ -203,7 +203,7 @@ public class PlayerController : MonoBehaviour
 
     public void PlayerDeath()
     {
-        GameManager.GM.SetState(GameState.Death);
+        GameManager.Instance.SetState(GameState.Death);
     }
 
     #endregion
