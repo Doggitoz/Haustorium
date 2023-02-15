@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -25,8 +23,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Blaster")]
     public Blaster blaster;
-    [SerializeField] GameObject projectilePrefab;
-    [SerializeField] AudioClip shootSfx;
+    [SerializeField] AudioClip ShootSfx;
     
     [SerializeField] bool _canShoot = true;
 
@@ -97,7 +94,7 @@ public class PlayerController : MonoBehaviour
     #region Input
     public void Look(Vector2 values)
     {
-        if (GameManager.GM.isPaused) return;
+        if (GameManager.Instance.isPaused) return;
         transform.Rotate(Vector3.up * values.x * Time.deltaTime * sensitivity);
         yPitch = Mathf.Clamp(yPitch + sensitivity * Time.deltaTime * values.y, -maxPitch, maxPitch);
         playerCam.transform.localEulerAngles = new Vector3(-yPitch, playerCam.transform.localEulerAngles.y, 0);
@@ -105,7 +102,7 @@ public class PlayerController : MonoBehaviour
 
     public void Move(Vector2 values)
     {
-        if (GameManager.GM.isPaused) return;
+        if (GameManager.Instance.isPaused) return;
         Vector3 movement = new Vector3(values.x, 0, values.y) * Time.deltaTime * moveSpeed;
         //Switch statement to determine the calculation performed on the players movement speed
         switch (playerState)
@@ -117,20 +114,20 @@ public class PlayerController : MonoBehaviour
                 break;
             default:
                 break;
-
         }
+
+        //I would eventually like to replace this with an animation event called when the foot lands on the ground
         if (footstepsTimer > timeBetweenFootsteps)
         {
             footstepsTimer = 0f;
-            int random = Random.Range(0, footsteps.Length);
-            footstepsSource.PlayOneShot(footsteps[random]);
+            PlayFootstep();
         }
         transform.Translate(movement);
     }
 
     public void ToggleFlashlight()
     {
-        if (GameManager.GM.isPaused) return;
+        if (GameManager.Instance.isPaused) return;
         flashlight.ToggleFlashlight();
     }
 
@@ -155,24 +152,21 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void PlayFootstep()
+    {
+        int random = Random.Range(0, footsteps.Length);
+        footstepsSource.PlayOneShot(footsteps[random]);
+    }
+
     #region Blaster
     public void Shoot()
     {
         if (!_canShoot) return;
-        if (GameManager.GM.isPaused) return;
+        if (GameManager.Instance.isPaused) return;
 
-        //Would like to add a simple timer here
-        if (blaster.Shoot())
+        if (blaster.Shoot(transform, playerCam.transform))
         {
-            //Spawn projectile
-            AudioManager.AM.PlayEffect(shootSfx);
-            GameObject go = Instantiate(projectilePrefab);
-            //Projectile proj = go.GetComponent<Projectile>(); //I dont think we need this anymore... idk
-            go.transform.position = blaster.projectileLocation.transform.position;
-            Vector3 temp = transform.rotation.eulerAngles;
-            temp.x = playerCam.transform.rotation.eulerAngles.x;
-            go.transform.rotation = Quaternion.Euler(temp);
-
+            playerEffects.PlayOneShot(ShootSfx);
         }
     }
 
@@ -203,7 +197,7 @@ public class PlayerController : MonoBehaviour
 
     public void PlayerDeath()
     {
-        GameManager.GM.SetState(GameState.Death);
+        GameManager.Instance.SetState(GameState.Death);
     }
 
     #endregion
