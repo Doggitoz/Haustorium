@@ -25,7 +25,7 @@ public class EnemyAI : MonoBehaviour
     float sightRange = 1f;
     public bool PlayerInRange { get; private set; }
 
-    public void Init(float radius, float range)
+    public void Init(float radius = 1, float range = 2)
     {
         initialized = true;
         sightRange = range;

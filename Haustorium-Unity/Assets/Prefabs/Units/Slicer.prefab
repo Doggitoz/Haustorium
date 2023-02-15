@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2141951941627459227}
   - component: {fileID: 5509916584367501403}
   - component: {fileID: 91278946844945002}
+  - component: {fileID: 1088391899430583986}
   m_Layer: 7
   m_Name: Controller
   m_TagString: Untagged
@@ -54,8 +55,6 @@ MonoBehaviour:
   vinesGO: {fileID: 3783906077783335069}
   tip: {fileID: 7001597781176955049}
   damageAmt: 0
-  player: {fileID: 0}
-  playerController: {fileID: 0}
 --- !u!135 &91278946844945002
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -69,6 +68,18 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1088391899430583986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656368108641205763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f9e6d1d7f67dde4cb8f7adaba0b1edd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2289225763562771081
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,7 +190,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 282b88d7b61be3148a0bfeee09025a04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spc: {fileID: 5509916584367501403}
 --- !u!1 &3212361639144904507
 GameObject:
   m_ObjectHideFlags: 0
