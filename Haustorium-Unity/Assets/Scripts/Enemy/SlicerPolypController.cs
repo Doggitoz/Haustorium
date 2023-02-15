@@ -12,7 +12,7 @@ public class SlicerPolypController : MonoBehaviour
     float vineIdleTimer = 0f;
     float stunTimer = 0f;
     float damageTimer = 0f;
-    bool stunned = false;
+    //bool stunned = false;
     EnemyAI ai;
 
     // Start is called before the first frame update
@@ -91,7 +91,7 @@ public class SlicerPolypController : MonoBehaviour
             Debug.Log("Shot");
             if (stunTimer > 1f)
             {
-                stunned = true;
+                //stunned = true;
                 vines.SetTrigger("Stun", 1);
                 vines.SetTrigger("Stun", 2);
                 stunTimer = 0f;
