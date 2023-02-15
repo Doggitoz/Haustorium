@@ -19,14 +19,13 @@ public class EnemyDamage : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionStay(Collision collision)
     {
        if(collision.gameObject.tag == "Player")
        {
             PlayerController controller = collision.gameObject.GetComponent<PlayerController>();
             damage = Mathf.Min(damage + damageTaken * Time.deltaTime, 100.0f);
             controller.DealDamage(damageTaken);
-            Destroy(gameObject);
        }
     }
 }

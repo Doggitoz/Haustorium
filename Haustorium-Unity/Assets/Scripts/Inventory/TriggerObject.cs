@@ -6,10 +6,10 @@ using UnityEngine.Events;
 public class TriggerObject : MonoBehaviour
 {
     public bool oneTimeUse = false;
-    bool hasBeenUsed = false;
-
     [SerializeField] TriggerEvent triggerEvent;
-    [System.Serializable] public class TriggerEvent : UnityEvent { }
+    bool hasBeenUsed = false;
+    [System.Serializable]
+    public class TriggerEvent : UnityEvent { }
 
     public void Trigger()
     {

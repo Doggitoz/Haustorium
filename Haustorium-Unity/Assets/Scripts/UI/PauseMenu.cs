@@ -18,7 +18,7 @@ public class PauseMenu : MonoBehaviour
 
     private void OnEnable()
     {
-        SaveData data = SaveData.Instance;
+        SaveData data = SaveData.DATA;
         MasterSlider.value = data.mem.MasterVolume;
         MusicSlider.value = data.mem.MusicVolume;
         EffectsSlider.value = data.mem.EffectsVolume;
@@ -27,37 +27,37 @@ public class PauseMenu : MonoBehaviour
 
     public void ReturnToMainMenu()
     {
-        GameManager.Instance.SetState(GameState.Menu);
+        GameManager.GM.SetState(GameState.Menu);
     }
 
     public void ExitGame()
     {
-        SaveData.Instance.SaveToJson();
+        SaveData.DATA.SaveToJson();
         Application.Quit();
     }
 
     public void ResumeGame()
     {
-        GameManager.Instance.SetPause(false);
-        SaveData.Instance.SaveToJson();
+        GameManager.GM.SetPause(false);
+        SaveData.DATA.SaveToJson();
     }
 
     public void MasterSliderUpdate()
     {
-        AudioManager.Instance.SetMasterVolume(MasterSlider.value);
+        AudioManager.AM.SetMasterVolume(MasterSlider.value);
     }
     public void MusicSliderUpdate()
     {
-        AudioManager.Instance.SetMusicVolume(MusicSlider.value);
+        AudioManager.AM.SetMusicVolume(MusicSlider.value);
     }
     public void EffectsSliderUpdate()
     {
-        AudioManager.Instance.SetEffectsVolume(EffectsSlider.value);
+        AudioManager.AM.SetEffectsVolume(EffectsSlider.value);
     }
 
     public void UISliderUpdate()
     {
-        AudioManager.Instance.SetUIVolume(UISlider.value);
+        AudioManager.AM.SetUIVolume(UISlider.value);
     }
 
 }

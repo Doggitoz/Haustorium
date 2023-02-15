@@ -27,7 +27,7 @@ public class IntroCinematic : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Escape))
         {
-            GameManager.Instance.SetState(GameState.Playing);
+            GameManager.GM.SetState(GameState.Playing);
         }
         if (finished)
         {
@@ -36,7 +36,7 @@ public class IntroCinematic : MonoBehaviour
             if (timer > timeToFade + 1f)
             {
                 //START PLAYING STATE
-                GameManager.Instance.SetState(GameState.Playing);
+                GameManager.GM.SetState(GameState.Playing);
             }
             return;
         }

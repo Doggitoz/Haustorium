@@ -17,15 +17,15 @@ public class AudioManager : MonoBehaviour
     public UnityEvent UpdateAudioControls { get; private set; }
 
     #region AudioManager Singleton
-    static private AudioManager instance;
-    static public AudioManager Instance { get { return instance; } }
+    static private AudioManager am;
+    static public AudioManager AM { get { return am; } }
 
     void CheckAudioManagerIsInScene()
     {
 
-        if (instance == null)
+        if (am == null)
         {
-            instance = this;
+            am = this;
         }
         else
         {
@@ -85,7 +85,7 @@ public class AudioManager : MonoBehaviour
     public void SetMasterVolume(float volume)
     {
         MasterVolume = volume;
-        SaveData.Instance.mem.MasterVolume = volume;
+        SaveData.DATA.mem.MasterVolume = volume;
         MusicSource.volume = MasterVolume * MusicVolume;
         UISource.volume = MasterVolume * UIVolume;
         EffectsSource.volume = MasterVolume * EffectVolume;
@@ -95,7 +95,7 @@ public class AudioManager : MonoBehaviour
     public void SetMusicVolume(float volume)
     {
         MusicVolume = volume;
-        SaveData.Instance.mem.MusicVolume = volume;
+        SaveData.DATA.mem.MusicVolume = volume;
         MusicSource.volume = MasterVolume * MusicVolume;
         UpdateAudioControls.Invoke();
     }
@@ -103,7 +103,7 @@ public class AudioManager : MonoBehaviour
     public void SetUIVolume(float volume)
     {
         UIVolume = volume;
-        SaveData.Instance.mem.UIVolume = volume;
+        SaveData.DATA.mem.UIVolume = volume;
         UISource.volume = MasterVolume * UIVolume;
         UpdateAudioControls.Invoke();
     }
@@ -111,7 +111,7 @@ public class AudioManager : MonoBehaviour
     public void SetEffectsVolume(float volume)
     {
         EffectVolume = volume;
-        SaveData.Instance.mem.EffectsVolume = volume;
+        SaveData.DATA.mem.EffectsVolume = volume;
         EffectsSource.volume = MasterVolume * EffectVolume;
         UpdateAudioControls.Invoke();
     }

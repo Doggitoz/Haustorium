@@ -14,8 +14,8 @@ public class PlayerHealth : MonoBehaviour
 
     private void Update()
     {
-        //PostProcessing.PP.SetVignetteColor("8E3A30");
-        //PostProcessing.PP.SetVignetteIntensity(1 - (health / maxHealth));
+        PostProcessing.PP.SetVignetteColor("8E3A30");
+        PostProcessing.PP.SetVignetteIntensity(1 - (health / maxHealth));
     }
 
     public void TakeDamage(float amount)

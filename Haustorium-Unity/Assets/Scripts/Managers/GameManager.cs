@@ -6,16 +6,15 @@ using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
-    [Header("Developer Mode")]
-    [SerializeField] bool DeveloperMode;
-    [SerializeField] GameState StartingState;
-    [SerializeField] bool SceneOverride;
 
-    [Header("Global UIs")]
+    [SerializeField] GameState StartingState;
+    GameState _currState;
     [SerializeField] GameObject pauseMenu;
     [SerializeField] DeathScreen ds;
 
-    [Header("Audio Clips")]
+    public bool canPause = true;
+    public bool isPaused { get; private set; } = false;
+
     [SerializeField] AudioClip mainMenuTheme;
     [SerializeField] AudioClip ambientMusic;
 
@@ -25,22 +24,18 @@ public class GameManager : MonoBehaviour
     public bool hasScrubber = false;
     public bool hasWeedEx = false;
 
-    GameState _currState;
-
-    [HideInInspector] public bool canPause = true;
-    [HideInInspector] public bool isPaused { get; private set; } = false;
     public UnityEvent OnGamePause { get; private set; }
 
     #region GameManager Singleton
-    static private GameManager instance;
-    static public GameManager Instance { get { return instance; } }
+    static private GameManager gm;
+    static public GameManager GM { get { return gm; } }
 
     void CheckManagerInScene()
     {
 
-        if (instance == null)
+        if (gm == null)
         {
-            instance = this;
+            gm = this;
         }
         else
         {
@@ -58,15 +53,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         SetPause(false);
-        //If developer mode enabled, do fun developer mode stuff!
-        if (DeveloperMode)
-        {
-            SetState(StartingState);
-        }
-        else
-        {
-            SetState(GameState.Menu);
-        }
+        SetState(StartingState);
     }
 
     #region GameState Management
@@ -103,11 +90,11 @@ public class GameManager : MonoBehaviour
 
     void MenuStart()
     {
-        AudioManager.Instance.StopMusic();
-        ChangeScene(0);
+        AudioManager.AM.StopMusic();
+        SceneManager.LoadScene(0);
         SetPause(false);
         SetCursor(true);
-        AudioManager.Instance.PlayMusic(mainMenuTheme);
+        AudioManager.AM.PlayMusic(mainMenuTheme);
     }
 
     void PlayingStart()
@@ -115,14 +102,11 @@ public class GameManager : MonoBehaviour
         hasPowerCell = false;
         hasScrubber = false;
         hasWeedEx = false;
-        AudioManager.Instance.StopMusic();
-        ChangeScene(2);
+        AudioManager.AM.StopMusic();
+
+        SceneManager.LoadScene(2);
         SetCursor(false);
-        AudioManager.Instance.PlayMusic(ambientMusic);
-        if (!SceneOverride)
-            PlayerManager.Instance.SpawnPlayer(new Vector3(19f, 1f, -16f));
-        else
-            PlayerManager.Instance.SpawnPlayer(Vector3.zero); //really stupid!!!
+        AudioManager.AM.PlayMusic(ambientMusic);
     }
 
     void DeathStart()
@@ -140,8 +124,8 @@ public class GameManager : MonoBehaviour
 
     void IntroStart()
     {
-        AudioManager.Instance.StopMusic();
-        ChangeScene(1);
+        AudioManager.AM.StopMusic();
+        SceneManager.LoadScene(1);
     }
 
     #endregion
@@ -221,13 +205,6 @@ public class GameManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
-    }
-
-    public void ChangeScene(int sceneIndex)
-    {
-        if (DeveloperMode && SceneOverride)
-            return; // This is kinda silly but idrc since it has no effect on general build gameplay
-        SceneManager.LoadScene(sceneIndex);
     }
 }
 

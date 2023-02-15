@@ -13,21 +13,21 @@ public class UseFlag : MonoBehaviour
         switch (type)
         {
             case FlagType.PowerCell:
-                if (GameManager.Instance.UsePowerCell())
+                if (GameManager.GM.UsePowerCell())
                 {
                     pod.FixPower();
                     EnableMesh();
                 }
                 break;
             case FlagType.Scrubber:
-                if (GameManager.Instance.UseScrubber())
+                if (GameManager.GM.UseScrubber())
                 {
                     pod.ReplaceScrubber();
                     EnableMesh();
                 }
                 break;
             case FlagType.WeedEx:
-                if (GameManager.Instance.UseWeedEx())
+                if (GameManager.GM.UseWeedEx())
                 {
                     pod.ClearObstruction();
                     EnableMesh();

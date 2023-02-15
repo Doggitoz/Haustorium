@@ -1,23 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 using System.IO;
 
 public class SaveData : MonoBehaviour
 {
-    public Data mem; //Leaving this public is risky...
+    public Memory mem; //Leaving this public is risky...
     float timer = 0f;
 
     #region SaveData Singleton
-    static private SaveData instance;
-    static public SaveData Instance { get { return instance; } }
+    static private SaveData data;
+    static public SaveData DATA { get { return data; } }
 
     void CheckDataInScene()
     {
 
-        if (instance == null)
+        if (data == null)
         {
-            instance = this;
+            data = this;
         }
         else
         {
@@ -58,7 +59,7 @@ public class SaveData : MonoBehaviour
     #region Data Saving and Loading
     private void CreateNewData()
     {
-        mem = new Data();
+        mem = new Memory();
         SaveToJson();
     }
 
@@ -67,10 +68,10 @@ public class SaveData : MonoBehaviour
         string filePath = Application.persistentDataPath + "/SaveData.json";
         string data = System.IO.File.ReadAllText(filePath);
 
-        mem = JsonUtility.FromJson<Data>(data);
+        mem = JsonUtility.FromJson<Memory>(data);
 
         //Load in volume control
-        AudioManager am = AudioManager.Instance;
+        AudioManager am = AudioManager.AM;
         am.SetMasterVolume(mem.MasterVolume);
         am.SetMusicVolume(mem.MusicVolume);
         am.SetEffectsVolume(mem.EffectsVolume);
@@ -99,14 +100,14 @@ public class SaveData : MonoBehaviour
 
 
 [System.Serializable]
-public class Data
+public class Memory
 {
     public float MasterVolume;
     public float MusicVolume;
     public float EffectsVolume;
     public float UIVolume;
 
-    public Data()
+    public Memory()
     {
         //Create with default values
         MasterVolume = 1f;

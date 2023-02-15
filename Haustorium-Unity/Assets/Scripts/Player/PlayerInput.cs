@@ -51,16 +51,16 @@ public class PlayerInput : MonoBehaviour
     public void OnPause(InputAction.CallbackContext context)
     {
         if (!context.started) return;
-        if (!GameManager.Instance.canPause) return;
+        if (!GameManager.GM.canPause) return;
         
-        if (GameManager.Instance.isPaused)
+        if (GameManager.GM.isPaused)
         {
-            SaveData.Instance.SaveToJson();
-            GameManager.Instance.SetPause(false);
+            SaveData.DATA.SaveToJson();
+            GameManager.GM.SetPause(false);
         }
         else
         {
-            GameManager.Instance.SetPause(true);
+            GameManager.GM.SetPause(true);
         }
     }
 

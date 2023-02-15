@@ -17,7 +17,7 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
-        SaveData data = SaveData.Instance;
+        SaveData data = SaveData.DATA;
         MasterSlider.value = data.mem.MasterVolume;
         MusicSlider.value = data.mem.MusicVolume;
         EffectsSlider.value = data.mem.EffectsVolume;
@@ -55,37 +55,37 @@ public class MainMenu : MonoBehaviour
     public void StartGame()
     {
         ClickSound();
-        GameManager.Instance.SetState(GameState.Intro);
+        GameManager.GM.SetState(GameState.Intro);
     }
 
     public void ExitGame()
     {
         ClickSound();
-        SaveData.Instance.SaveToJson();
+        SaveData.DATA.SaveToJson();
         Application.Quit();
     }
 
     public void MasterSliderUpdate()
     {
-        AudioManager.Instance.SetMasterVolume(MasterSlider.value);
+        AudioManager.AM.SetMasterVolume(MasterSlider.value);
     }
     public void MusicSliderUpdate()
     {
-        AudioManager.Instance.SetMusicVolume(MusicSlider.value);
+        AudioManager.AM.SetMusicVolume(MusicSlider.value);
     }
     public void EffectsSliderUpdate()
     {
-        AudioManager.Instance.SetEffectsVolume(EffectsSlider.value);
+        AudioManager.AM.SetEffectsVolume(EffectsSlider.value);
     }
 
     public void UISliderUpdate()
     {
-        AudioManager.Instance.SetUIVolume(UISlider.value);
+        AudioManager.AM.SetUIVolume(UISlider.value);
     }
 
     public void ClickSound()
     {
-        AudioManager.Instance.PlayUI(Click);
+        AudioManager.AM.PlayUI(Click);
     }
 
     public void ResetDataButton()
@@ -97,7 +97,7 @@ public class MainMenu : MonoBehaviour
     public void AcceptResetData()
     {
         ClickSound();
-        SaveData.Instance.ClearData();
+        SaveData.DATA.ClearData();
         Debug.Log("Reset data...");
         WarningScreen.SetActive(false);
     }

@@ -11,7 +11,7 @@ public class SyncToGlobalVolume : MonoBehaviour
     private void Start()
     {
         UpdateVolume();
-        AudioManager.Instance.UpdateAudioControls.AddListener(UpdateVolume);
+        AudioManager.AM.UpdateAudioControls.AddListener(UpdateVolume);
     }
 
     void UpdateVolume()
@@ -19,13 +19,13 @@ public class SyncToGlobalVolume : MonoBehaviour
         switch(audioType)
         {
             case AudioType.Effects:
-                audioSource.volume = AudioManager.Instance.GetGlobalEffectsVolume() * localVolume;
+                audioSource.volume = AudioManager.AM.GetGlobalEffectsVolume() * localVolume;
                 break;
             case AudioType.UI:
-                audioSource.volume = AudioManager.Instance.GetGlobalUIVolume() * localVolume;
+                audioSource.volume = AudioManager.AM.GetGlobalUIVolume() * localVolume;
                 break;
             case AudioType.Music:
-                audioSource.volume = AudioManager.Instance.GetGlobalMusicVolume() * localVolume;
+                audioSource.volume = AudioManager.AM.GetGlobalMusicVolume() * localVolume;
                 break;
         }
     }
