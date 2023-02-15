@@ -83,6 +83,7 @@ public class SlicerPolypController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("trigger");
         if (other.gameObject.CompareTag("Projectile"))
         {
             //THIS IS REALLY DUMB
