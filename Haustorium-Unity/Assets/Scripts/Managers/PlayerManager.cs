@@ -34,6 +34,7 @@ public class PlayerManager : MonoBehaviour
 
     public void SpawnPlayer(Vector3 SpawnPos)
     {
+        Debug.Log("Spawning player");
         if (Player != null)
         {
             Destroy(Player);

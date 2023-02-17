@@ -119,7 +119,7 @@ public class GameManager : MonoBehaviour
         ChangeScene(2);
         SetCursor(false);
         AudioManager.Instance.PlayMusic(ambientMusic);
-        if (!SceneOverride)
+        if (!SceneOverride || !DeveloperMode)
             PlayerManager.Instance.SpawnPlayer(new Vector3(19f, 1f, -16f));
         else
             PlayerManager.Instance.SpawnPlayer(Vector3.zero); //really stupid!!!
