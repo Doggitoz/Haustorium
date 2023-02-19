@@ -691,8 +691,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 8ce36e06cb7bb7547bf71056c8c31ca1,
-    type: 3}
+  m_Actions: {fileID: -944628639613478452, guid: 8ce36e06cb7bb7547bf71056c8c31ca1, type: 3}
   m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -850,11 +849,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6497749528273135935}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-<<<<<<< HEAD:Haustorium-Unity/Assets/Prefabs/Units/Player.prefab
   m_LocalPosition: {x: 0, y: 3.24, z: 0}
-=======
-  m_LocalPosition: {x: -19, y: 1, z: -26}
->>>>>>> dev-unstable:Haustorium-Unity/Assets/Prefabs/Player.prefab
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1259,78 +1254,63 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8940368013728287023}
     m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 8a2ecd954ddd83241a35f7835c5fae3a,
-        type: 3}
+    - target: {fileID: -8679921383154817045, guid: 8a2ecd954ddd83241a35f7835c5fae3a, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 8a2ecd954ddd83241a35f7835c5fae3a,
-        type: 3}
+    - target: {fileID: -8679921383154817045, guid: 8a2ecd954ddd83241a35f7835c5fae3a, type: 3}
       propertyPath: m_LocalScale.x
       value: 300
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 8a2ecd954ddd83241a35f7835c5fae3a,
-        type: 3}
+    - target: {fileID: -8679921383154817045, guid: 8a2ecd954ddd83241a35f7835c5fae3a, type: 3}
       propertyPath: m_LocalScale.y
       value: 300
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 8a2ecd954ddd83241a35f7835c5fae3a,
-        type: 3}
+    - target: {fileID: -8679921383154817045, guid: 8a2ecd954ddd83241a35f7835c5fae3a, type: 3}
       propertyPath: m_LocalScale.z
       value: 300
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 8a2ecd954ddd83241a35f7835c5fae3a,
-        type: 3}
+    - target: {fileID: -8679921383154817045, guid: 8a2ecd954ddd83241a35f7835c5fae3a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.578
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 8a2ecd954ddd83241a35f7835c5fae3a,
-        type: 3}
+    - target: {fileID: -8679921383154817045, guid: 8a2ecd954ddd83241a35f7835c5fae3a, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.367
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 8a2ecd954ddd83241a35f7835c5fae3a,
-        type: 3}
+    - target: {fileID: -8679921383154817045, guid: 8a2ecd954ddd83241a35f7835c5fae3a, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.688
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 8a2ecd954ddd83241a35f7835c5fae3a,
-        type: 3}
+    - target: {fileID: -8679921383154817045, guid: 8a2ecd954ddd83241a35f7835c5fae3a, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 8a2ecd954ddd83241a35f7835c5fae3a,
-        type: 3}
+    - target: {fileID: -8679921383154817045, guid: 8a2ecd954ddd83241a35f7835c5fae3a, type: 3}
       propertyPath: m_LocalRotation.x
       value: -0.5
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 8a2ecd954ddd83241a35f7835c5fae3a,
-        type: 3}
+    - target: {fileID: -8679921383154817045, guid: 8a2ecd954ddd83241a35f7835c5fae3a, type: 3}
       propertyPath: m_LocalRotation.y
       value: -0.5
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 8a2ecd954ddd83241a35f7835c5fae3a,
-        type: 3}
+    - target: {fileID: -8679921383154817045, guid: 8a2ecd954ddd83241a35f7835c5fae3a, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.5
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 8a2ecd954ddd83241a35f7835c5fae3a,
-        type: 3}
+    - target: {fileID: -8679921383154817045, guid: 8a2ecd954ddd83241a35f7835c5fae3a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -90
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 8a2ecd954ddd83241a35f7835c5fae3a,
-        type: 3}
+    - target: {fileID: -8679921383154817045, guid: 8a2ecd954ddd83241a35f7835c5fae3a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 8a2ecd954ddd83241a35f7835c5fae3a,
-        type: 3}
+    - target: {fileID: -8679921383154817045, guid: 8a2ecd954ddd83241a35f7835c5fae3a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 8a2ecd954ddd83241a35f7835c5fae3a,
-        type: 3}
+    - target: {fileID: 919132149155446097, guid: 8a2ecd954ddd83241a35f7835c5fae3a, type: 3}
       propertyPath: m_Name
       value: SM_StunGun
       objectReference: {fileID: 0}
@@ -1338,14 +1318,12 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 8a2ecd954ddd83241a35f7835c5fae3a, type: 3}
 --- !u!4 &2854105485857976585 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8a2ecd954ddd83241a35f7835c5fae3a,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8a2ecd954ddd83241a35f7835c5fae3a, type: 3}
   m_PrefabInstance: {fileID: 2310743172477851362}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &3229082572675787699 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8a2ecd954ddd83241a35f7835c5fae3a,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8a2ecd954ddd83241a35f7835c5fae3a, type: 3}
   m_PrefabInstance: {fileID: 2310743172477851362}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &7140661699999596685
@@ -1360,11 +1338,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2af0f4144a5c8d4c835ddcea60df0fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD:Haustorium-Unity/Assets/Prefabs/Units/Player.prefab
-=======
-  ProjectilePrefab: {fileID: 6130054082351950884, guid: f9cdb45a36200bf4c8b9a46bf2021f21,
-    type: 3}
->>>>>>> dev-unstable:Haustorium-Unity/Assets/Prefabs/Player.prefab
   energy: 20
   cost: 1
   max: 20

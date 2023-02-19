@@ -41,6 +41,9 @@ public class AudioManager : MonoBehaviour
     }
 
     #region Play/Stop Audio Public Methods
+    // I would like to update this to accomodate for multiple effects overlapping. This could potentially be accomplished by multiple audio sources on each
+    // with some variant of a queue to determine which audio has a priority to stop if all playing. Doesn't seem too hard, just needs trial and error.
+
     public void PlayMusic(AudioClip clip, bool fadeOut = true, bool fadeIn = false)
     {
         MusicSource.Stop();
@@ -55,7 +58,9 @@ public class AudioManager : MonoBehaviour
 
     public void PlayUI(AudioClip clip)
     {
-        UISource.PlayOneShot(clip);
+        UISource.Stop();
+        UISource.clip = clip;
+        UISource.Play();
     }
 
     public void StopUI()
@@ -65,7 +70,9 @@ public class AudioManager : MonoBehaviour
 
     public void PlayEffect(AudioClip clip)
     {
-        EffectsSource.PlayOneShot(clip);
+        EffectsSource.Stop();
+        EffectsSource.clip = clip;
+        EffectsSource.Play();
     }
 
     public void StopEffect()

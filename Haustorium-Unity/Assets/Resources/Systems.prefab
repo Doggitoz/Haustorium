@@ -554,13 +554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3c643f09d343bc4692d36f9f8fcd468, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
   StartingState: 0
-=======
-  DeveloperMode: 0
-  StartingState: 2
-  SceneOverride: 1
->>>>>>> dev-unstable
   pauseMenu: {fileID: 4096993633556221700}
   ds: {fileID: 9127083425928903333}
   canPause: 1

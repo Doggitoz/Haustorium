@@ -49,6 +49,7 @@ public class IntroCinematic : MonoBehaviour
             }
             source.PlayOneShot(ListOfClips[indexInCinematic]);
             background.sprite = backgroundImages[indexInCinematic];
+            Debug.Log(backgroundImages[indexInCinematic]);
             indexInCinematic++;
         }
     }
