@@ -103,7 +103,6 @@ public class GameManager : MonoBehaviour
 
     void MenuStart()
     {
-        AudioManager.Instance.StopMusic();
         ChangeScene(0);
         SetPause(false);
         SetCursor(true);
@@ -115,14 +114,9 @@ public class GameManager : MonoBehaviour
         hasPowerCell = false;
         hasScrubber = false;
         hasWeedEx = false;
-        AudioManager.Instance.StopMusic();
         ChangeScene(2);
         SetCursor(false);
         AudioManager.Instance.PlayMusic(ambientMusic);
-        if (!SceneOverride || !DeveloperMode)
-            PlayerManager.Instance.SpawnPlayer(new Vector3(19f, 1f, -16f));
-        else
-            PlayerManager.Instance.SpawnPlayer(Vector3.zero); //really stupid!!!
     }
 
     void DeathStart()
