@@ -11,10 +11,15 @@ public class SlicerPolypController : MonoBehaviour
     float vineIdleTimer = 0f;
     float stunTimer = 0f;
     float damageTimer = 0f;
+<<<<<<< HEAD:Haustorium-Unity/Assets/SlicerPolypController.cs
     bool aggro = false;
     bool stunned = false;
     [SerializeField] GameObject player;
     [SerializeField] PlayerController playerController;
+=======
+    //bool stunned = false;
+    EnemyAI ai;
+>>>>>>> dev-unstable:Haustorium-Unity/Assets/Scripts/Enemy/SlicerPolypController.cs
 
     // Start is called before the first frame update
     void Start()
@@ -90,6 +95,7 @@ public class SlicerPolypController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("trigger");
         if (other.gameObject.CompareTag("Projectile"))
         {
             //THIS IS REALLY DUMB
@@ -97,7 +103,7 @@ public class SlicerPolypController : MonoBehaviour
             Debug.Log("Shot");
             if (stunTimer > 1f)
             {
-                stunned = true;
+                //stunned = true;
                 vines.SetTrigger("Stun", 1);
                 vines.SetTrigger("Stun", 2);
                 stunTimer = 0f;

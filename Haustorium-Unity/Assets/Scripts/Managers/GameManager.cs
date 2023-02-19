@@ -90,8 +90,12 @@ public class GameManager : MonoBehaviour
 
     void MenuStart()
     {
+<<<<<<< HEAD
         AudioManager.AM.StopMusic();
         SceneManager.LoadScene(0);
+=======
+        ChangeScene(0);
+>>>>>>> dev-unstable
         SetPause(false);
         SetCursor(true);
         AudioManager.AM.PlayMusic(mainMenuTheme);
@@ -102,11 +106,17 @@ public class GameManager : MonoBehaviour
         hasPowerCell = false;
         hasScrubber = false;
         hasWeedEx = false;
+<<<<<<< HEAD
         AudioManager.AM.StopMusic();
 
         SceneManager.LoadScene(2);
         SetCursor(false);
         AudioManager.AM.PlayMusic(ambientMusic);
+=======
+        ChangeScene(2);
+        SetCursor(false);
+        AudioManager.Instance.PlayMusic(ambientMusic);
+>>>>>>> dev-unstable
     }
 
     void DeathStart()
