@@ -4,19 +4,17 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Projectile
-  - Me
-  - Item
   - Trigger
+  - Item
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Player
+  - 
   - Water
   - UI
-  - Projectile
-  - Enemy
+  - 
+  - 
   - 
   - 
   - 

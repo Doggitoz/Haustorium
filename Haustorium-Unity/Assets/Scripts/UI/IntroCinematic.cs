@@ -7,6 +7,8 @@ public class IntroCinematic : MonoBehaviour
 {
     [SerializeField] AudioClip[] ListOfClips;
     [SerializeField] Image background;
+    [SerializeField] Image fadeBackground;
+    [SerializeField] Sprite[] backgroundImages;
     [SerializeField] AudioSource source;
 
     int indexInCinematic = 0;
@@ -25,16 +27,16 @@ public class IntroCinematic : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Escape))
         {
-            GameManager.GM.SetState(GameState.Playing);
+            GameManager.Instance.SetState(GameState.Playing);
         }
         if (finished)
         {
-            background.color = new Color(0, 0, 0, (timer / timeToFade));
+            fadeBackground.color = new Color(0, 0, 0, (timer / timeToFade));
             timer += Time.deltaTime;
             if (timer > timeToFade + 1f)
             {
                 //START PLAYING STATE
-                GameManager.GM.SetState(GameState.Playing);
+                GameManager.Instance.SetState(GameState.Playing);
             }
             return;
         }
@@ -46,6 +48,7 @@ public class IntroCinematic : MonoBehaviour
                 return;
             }
             source.PlayOneShot(ListOfClips[indexInCinematic]);
+            background.sprite = backgroundImages[indexInCinematic];
             indexInCinematic++;
         }
     }

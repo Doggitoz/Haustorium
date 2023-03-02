@@ -10,23 +10,23 @@ public class PickupFlag : MonoBehaviour
         switch (pickup)
         {
             case FlagType.PowerCell:
-                if (!GameManager.GM.hasPowerCell)
+                if (!GameManager.Instance.hasPowerCell)
                 {
-                    GameManager.GM.CollectPowerCell();
+                    GameManager.Instance.CollectPowerCell();
                     Destroy(gameObject);
                 }
                 break;
             case FlagType.Scrubber:
-                if (!GameManager.GM.hasScrubber)
+                if (!GameManager.Instance.hasScrubber)
                 {
-                    GameManager.GM.CollectScrubber();
+                    GameManager.Instance.CollectScrubber();
                     Destroy(gameObject);
                 }
                 break;
             case FlagType.WeedEx:
-                if (!GameManager.GM.hasWeedEx)
+                if (!GameManager.Instance.hasWeedEx)
                 {
-                    GameManager.GM.CollectWeedEx();
+                    GameManager.Instance.CollectWeedEx();
                     Destroy(gameObject);
                 }
                 break;
