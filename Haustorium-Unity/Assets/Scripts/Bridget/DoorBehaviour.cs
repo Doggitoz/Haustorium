@@ -4,15 +4,36 @@ using UnityEngine;
 
 public class DoorBehaviour : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public AudioClip MainDoor;
+    private Animator DWF_Door;
+  
     void Start()
     {
-        
+        DWF_Door = GetComponent<Animator>();
+        Debug.Log(DWF_Door);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.tag == "Player")
+        {
+            playHinge();
+            DWF_Door.SetBool("IsOpen", true);
+        }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            playHinge();
+            DWF_Door.SetBool("IsOpen", false);
+        }
+    }
+
+    public void playHinge()
+    {
+        AudioSource.PlayClipAtPoint(MainDoor, transform.position, 25);
+    }
+
 }
