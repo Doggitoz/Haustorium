@@ -1,3 +1,4 @@
+using Assets.Scripts.Enemy;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +11,15 @@ using UnityEngine;
 [RequireComponent(typeof(SphereCollider))]
 public class EnemyAI : MonoBehaviour
 {
+    [SerializeField] IEnemyBehavior _enemyBehavior;
     EnemyState _behaviorState;
+    GameObject _target;
+    float _timeStunned = 0f;
+
+    SphereCollider sphere;
+    bool initialized = false;
+    float sightRange = 1f;
+    public bool PlayerInRange { get; private set; }
 
     [System.Serializable]
     public enum EnemyState
@@ -38,11 +47,6 @@ public class EnemyAI : MonoBehaviour
         return false;
     }
 
-    SphereCollider sphere;
-    bool initialized = false;
-    float sightRange = 1f;
-    public bool PlayerInRange { get; private set; }
-
     public void Init(float radius = 1, float range = 2)
     {
         initialized = true;
@@ -66,6 +70,10 @@ public class EnemyAI : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             PlayerInRange = true;
+        }
+        else if (other.gameObject.CompareTag("Projectile"))
+        {
+            _timeStunned = _enemyBehavior.stunDuration;
         }
     }
 
@@ -97,19 +105,49 @@ public class EnemyAI : MonoBehaviour
     }
 
     // BEHAVIOR STATES
-
     private void IdleState()
     {
-        return;
+        if (_timeStunned > 0f)
+        {
+            _behaviorState = EnemyState.Stun;
+            _enemyBehavior.Stun();
+        }
+        else if (PlayerInRange)
+        {
+            _behaviorState = EnemyState.Aggro;
+            _enemyBehavior.Attack(_target);
+        }
     }
 
     private void AggroState()
     {
-        return;
+        if (_timeStunned > 0f)
+        {
+            _behaviorState = EnemyState.Stun;
+            _enemyBehavior.Stun();
+        }
+        if (_target == null || !PlayerInRange)
+        {
+            _behaviorState = EnemyState.Idle;
+            _enemyBehavior.Idle();
+        }
     }
 
     private void StunState()
     {
-        return;
+        _timeStunned -= Time.deltaTime;
+        if (_timeStunned < 0f)
+        {
+            if (PlayerInRange)
+            {
+                _behaviorState = EnemyState.Aggro;
+                _enemyBehavior.Attack(_target);
+            }
+            else
+            {
+                _behaviorState = EnemyState.Idle;
+                _enemyBehavior.Idle();
+            }
+        }
     }
 }
