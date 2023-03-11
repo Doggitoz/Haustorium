@@ -10,7 +10,15 @@ using UnityEngine;
 [RequireComponent(typeof(SphereCollider))]
 public class EnemyAI : MonoBehaviour
 {
-    //Public method for enemy controllers to call on
+    EnemyState _behaviorState;
+
+    [System.Serializable]
+    public enum EnemyState
+    {
+        Idle, Aggro, Stun
+    }
+
+    // FIX ME! Public method for enemy controllers to call on
     public bool CheckForPlayer()
     {
         if (!initialized)
@@ -40,6 +48,7 @@ public class EnemyAI : MonoBehaviour
         initialized = true;
         sightRange = range;
         sphere.transform.localScale = Vector3.one * radius;
+        _behaviorState = EnemyState.Idle;
     }
 
     private void Awake()
@@ -68,4 +77,39 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Execute state machine
+    /// </summary>
+    private void Update()
+    {
+        switch (_behaviorState)
+        {
+            case EnemyState.Idle:
+                IdleState();
+                break;
+            case EnemyState.Aggro:
+                AggroState();
+                break;
+            case EnemyState.Stun:
+                StunState();
+                break;
+        }
+    }
+
+    // BEHAVIOR STATES
+
+    private void IdleState()
+    {
+        return;
+    }
+
+    private void AggroState()
+    {
+        return;
+    }
+
+    private void StunState()
+    {
+        return;
+    }
 }
