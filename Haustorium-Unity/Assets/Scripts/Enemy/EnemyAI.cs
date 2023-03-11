@@ -15,11 +15,16 @@ public class EnemyAI : MonoBehaviour
     {
         if (!initialized)
             Debug.LogWarning("EnemyAI script on object " + gameObject.name + " has not been initialized");
-        return (HasLOS() && PlayerInRange);
+        //return (HasLOS() && PlayerInRange);
+        return false; // TODO FIX ME
     }
 
-    //Raycast from transform to player. If nothing in between, return true
-    bool HasLOS()
+    /// <summary>
+    /// Raycast to target and return true if we hit any part of it, false if we hit anything else
+    /// </summary>
+    /// <param name="target"></param>
+    /// <returns></returns>
+    bool HasLOSTo(GameObject target)
     {
         //use sightRange to raycast size
         return false;
