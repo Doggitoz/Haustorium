@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Handle player detection and enemy AI states
+/// Spherecast for player, then raycast for line of sight.
+/// States are: Idle, Aggro, and Stun.
+/// </summary>
 [RequireComponent(typeof(SphereCollider))]
 public class EnemyAI : MonoBehaviour
 {
