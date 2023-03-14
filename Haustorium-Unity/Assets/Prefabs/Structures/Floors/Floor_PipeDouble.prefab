@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3365660441954666257}
   - component: {fileID: 1809006424811227316}
   - component: {fileID: 4539090263533239422}
+  - component: {fileID: 7985216714723080561}
   m_Layer: 0
   m_Name: Floor_PipeDouble
   m_TagString: Untagged
@@ -85,3 +86,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7985216714723080561
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2737883989929532843}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.02, y: 0.020000001, z: 0.0014099705}
+  m_Center: {x: -0.010000059, y: 0.010000001, z: -0.00070498645}
