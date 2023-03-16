@@ -23,7 +23,7 @@ public class EnemyAI : MonoBehaviour
     [System.Serializable]
     public enum EnemyState
     {
-        Idle, Aggro, Stun
+        Idle, Aggro, Stun, Die
     }
 
     // FIX ME! Public method for enemy controllers to call on
@@ -100,6 +100,9 @@ public class EnemyAI : MonoBehaviour
             case EnemyState.Stun:
                 StunState();
                 break;
+            case EnemyState.Die:
+                Die();
+                break;
         }
     }
 
@@ -148,5 +151,11 @@ public class EnemyAI : MonoBehaviour
                 _enemyBehavior.Idle();
             }
         }
+    }
+
+    private void Die()
+    {
+        // enemyBehavior must destroy gameObject when complelte
+        _enemyBehavior.Die();
     }
 }
