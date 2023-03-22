@@ -71,6 +71,7 @@ GameObject:
   - component: {fileID: 7418951427826245917}
   - component: {fileID: 7762767290365687663}
   - component: {fileID: 741728914}
+  - component: {fileID: 1153401119429171692}
   m_Layer: 7
   m_Name: Slicer
   m_TagString: Untagged
@@ -144,6 +145,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageTaken: 0.1
+--- !u!114 &1153401119429171692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3212361639144904507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 246081c20cd77e941a73c6f322bbfb12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3783906077783335069
 GameObject:
   m_ObjectHideFlags: 0
