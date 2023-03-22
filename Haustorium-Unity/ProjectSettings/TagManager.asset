@@ -8,6 +8,7 @@ TagManager:
   - Item
   - Undefined
   - Projectile
+  - StunExplosion
   layers:
   - Default
   - TransparentFX
