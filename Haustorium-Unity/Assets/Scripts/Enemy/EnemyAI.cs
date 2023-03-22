@@ -10,13 +10,32 @@ using UnityEngine;
 [RequireComponent(typeof(SphereCollider))]
 public class EnemyAI : MonoBehaviour
 {
+
     // Enemy behavior component. Set reference in inspector.
     [SerializeField] IEnemyBehavior _enemyBehavior;
+
     // Component used for plant's detection area. Set reference in inspector.
     [SerializeField] SphereCollider _visionSphere;
     
+    #region Raycast Fields
+
+    [Header("Raycast Variables")]
+    [Tooltip("Debug for LOS cast")] [SerializeField] GameObject debugTarget;
+
+    // Raycast layermask
+    [SerializeField] LayerMask _lineOfSight;
+
+    // Raycast source
+    [SerializeField] GameObject _raycastSource;
+
+    // Raycast target tag
+    [SerializeField] string TagName;
+     // this isnt set up yet. trying to do fancy editor scripts
+
     // Raycast length for player detection. Always equal to _visionSphere's radius
     float sightRange = 5f;
+
+    #endregion
 
     EnemyState _behaviorState;
     GameObject _target;
@@ -44,6 +63,14 @@ public class EnemyAI : MonoBehaviour
     bool HasLOSTo(GameObject target)
     {
         //use sightRange to raycast size
+        RaycastHit hit;
+
+        if (Physics.Raycast(_raycastSource.transform.position, target.transform.position - _raycastSource.transform.position, out hit, sightRange, _lineOfSight)) {
+            if(hit.collider.gameObject.CompareTag(TagName))
+            {
+                return true;
+            }
+        }
         return false;
     }
 
@@ -107,6 +134,7 @@ public class EnemyAI : MonoBehaviour
                 Die();
                 break;
         }
+        HasLOSTo(debugTarget);
     }
 
     // BEHAVIOR STATES
