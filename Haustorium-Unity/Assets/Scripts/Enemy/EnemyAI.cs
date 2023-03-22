@@ -98,11 +98,13 @@ public class EnemyAI : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Projectile"))
         {
-            _timeStunned = _enemyBehavior.stunDuration;
+            //_timeStunned = _enemyBehavior.stunDuration;
+            _timeStunned = 10;
         }
         else if (isTargetablePlayer(other))
         {
             PlayerInRange = true;
+            _target = other.gameObject;
         }
     }
 
@@ -111,6 +113,7 @@ public class EnemyAI : MonoBehaviour
         if (!PlayerInRange && isTargetablePlayer(other))
         {
             PlayerInRange = true;
+            _target = other.gameObject;
         }
     }
 
@@ -119,6 +122,7 @@ public class EnemyAI : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             PlayerInRange = false;
+            _target = null;
         }
     }
 
@@ -151,13 +155,13 @@ public class EnemyAI : MonoBehaviour
         if (_timeStunned > 0f)
         {
             _behaviorState = EnemyState.Stun;
-            _enemyBehavior.Stun();
+            //_enemyBehavior.Stun();
             print("Stunned!");
         }
         else if (PlayerInRange)
         {
             _behaviorState = EnemyState.Aggro;
-            _enemyBehavior.Attack(_target);
+            //_enemyBehavior.Attack(_target);
             print("Aggro!");
         }
     }
@@ -167,13 +171,13 @@ public class EnemyAI : MonoBehaviour
         if (_timeStunned > 0f)
         {
             _behaviorState = EnemyState.Stun;
-            _enemyBehavior.Stun();
+            //_enemyBehavior.Stun();
             print("Stunned!");
         }
         if (_target == null || !PlayerInRange)
         {
             _behaviorState = EnemyState.Idle;
-            _enemyBehavior.Idle();
+            //_enemyBehavior.Idle();
             print("Idling.");
         }
     }
@@ -186,13 +190,13 @@ public class EnemyAI : MonoBehaviour
             if (PlayerInRange)
             {
                 _behaviorState = EnemyState.Aggro;
-                _enemyBehavior.Attack(_target);
+                //_enemyBehavior.Attack(_target);
                 print("Aggro!");
             }
             else
             {
                 _behaviorState = EnemyState.Idle;
-                _enemyBehavior.Idle();
+                //_enemyBehavior.Idle();
                 print("Idle.");
             }
         }

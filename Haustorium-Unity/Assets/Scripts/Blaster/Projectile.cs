@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Projectile : MonoBehaviour
 {
+    bool destroyNextFrame;
     float timer = 0f;
     [SerializeField] float bulletVelocity;
     [SerializeField] float bulletTimer = 10f;
@@ -20,6 +21,11 @@ public class Projectile : MonoBehaviour
         timer += Time.deltaTime;
         if (timer > bulletTimer)
             DestroyProjectile();
+
+        if (destroyNextFrame )
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void Init()
@@ -29,7 +35,7 @@ public class Projectile : MonoBehaviour
 
     void DestroyProjectile()
     {
-        Destroy(gameObject);
+        destroyNextFrame = true;
     }
 
     private void OnTriggerEnter(Collider other)
