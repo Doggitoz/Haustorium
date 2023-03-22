@@ -49,10 +49,15 @@ public class EnemyAI : MonoBehaviour
         Idle, Aggro, Stun, Die
     }
 
-    // pass a collider, return true if it's a player we have LOS to
+    /// <summary>
+    /// Return true if the supplied collider belongs to a player we have LOS to
+    /// </summary>
+    /// <param name="other"></param>
+    /// <returns></returns>
     public bool isTargetablePlayer(Collider other)
     {
-        return false; // TODO FIX ME
+        GameObject target = other.gameObject;
+        return (target.CompareTag("Player") && HasLOSTo(target));
     }
 
     /// <summary>
@@ -66,12 +71,15 @@ public class EnemyAI : MonoBehaviour
         RaycastHit hit;
 
         if (Physics.Raycast(_raycastSource.transform.position, target.transform.position - _raycastSource.transform.position, out hit, sightRange, _lineOfSight)) {
+            return hit.collider.gameObject == target;
+            /*
             if(hit.collider.gameObject.CompareTag(TagName))
             {
                 return true;
             }
+            */
         }
-        return false;
+        else return false;
     }
 
     private void Awake()
