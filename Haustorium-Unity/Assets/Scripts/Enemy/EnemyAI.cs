@@ -10,14 +10,37 @@ using UnityEngine;
 [RequireComponent(typeof(SphereCollider))]
 public class EnemyAI : MonoBehaviour
 {
+
+    // Enemy behavior component. Set reference in inspector.
     [SerializeField] IEnemyBehavior _enemyBehavior;
+
+    // Component used for plant's detection area. Set reference in inspector.
+    [SerializeField] SphereCollider _visionSphere;
+    
+    #region Raycast Fields
+
+    [Header("Raycast Variables")]
+    [Tooltip("Debug for LOS cast")] [SerializeField] GameObject debugTarget;
+
+    // Raycast layermask
+    [SerializeField] LayerMask _lineOfSight;
+
+    // Raycast source
+    [SerializeField] GameObject _raycastSource;
+
+    // Raycast target tag
+    [SerializeField] string TagName;
+     // this isnt set up yet. trying to do fancy editor scripts
+
+    // Raycast length for player detection. Always equal to _visionSphere's radius
+    float sightRange = 5f;
+
+    #endregion
+
     EnemyState _behaviorState;
     GameObject _target;
     float _timeStunned = 0f;
 
-    SphereCollider sphere;
-    bool initialized = false;
-    float sightRange = 1f;
     public bool PlayerInRange { get; private set; }
 
     [System.Serializable]
@@ -26,13 +49,15 @@ public class EnemyAI : MonoBehaviour
         Idle, Aggro, Stun, Die
     }
 
-    // FIX ME! Public method for enemy controllers to call on
-    public bool CheckForPlayer()
+    /// <summary>
+    /// Return true if the supplied collider belongs to a player we have LOS to
+    /// </summary>
+    /// <param name="other"></param>
+    /// <returns></returns>
+    public bool isTargetablePlayer(Collider other)
     {
-        if (!initialized)
-            Debug.LogWarning("EnemyAI script on object " + gameObject.name + " has not been initialized");
-        //return (HasLOS() && PlayerInRange);
-        return false; // TODO FIX ME
+        GameObject target = other.gameObject;
+        return (target.CompareTag("Player") && HasLOSTo(target));
     }
 
     /// <summary>
@@ -43,36 +68,52 @@ public class EnemyAI : MonoBehaviour
     bool HasLOSTo(GameObject target)
     {
         //use sightRange to raycast size
-        return false;
-    }
+        RaycastHit hit;
 
-    public void Init(float radius = 1, float range = 2)
-    {
-        initialized = true;
-        sightRange = range;
-        sphere.transform.localScale = Vector3.one * radius;
-        _behaviorState = EnemyState.Idle;
+        if (Physics.Raycast(_raycastSource.transform.position, target.transform.position - _raycastSource.transform.position, out hit, sightRange, _lineOfSight)) {
+            return hit.collider.gameObject == target;
+            /*
+            if(hit.collider.gameObject.CompareTag(TagName))
+            {
+                return true;
+            }
+            */
+        }
+        else return false;
     }
 
     private void Awake()
     {
-        sphere = GetComponent<SphereCollider>();
+        // Set references in inspector so no need to hunt for things on Awake()
+        //sphere = GetComponent<SphereCollider>();
     }
 
     private void Start()
     {
-        sphere.isTrigger = true;
+        sightRange = _visionSphere.radius;
+        //sphere.isTrigger = true;
     }
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Projectile"))
+        {
+            //_timeStunned = _enemyBehavior.stunDuration;
+            _timeStunned = 10;
+        }
+        else if (isTargetablePlayer(other))
         {
             PlayerInRange = true;
+            _target = other.gameObject;
         }
-        else if (other.gameObject.CompareTag("Projectile"))
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (!PlayerInRange && isTargetablePlayer(other))
         {
-            _timeStunned = _enemyBehavior.stunDuration;
+            PlayerInRange = true;
+            _target = other.gameObject;
         }
     }
 
@@ -81,6 +122,7 @@ public class EnemyAI : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             PlayerInRange = false;
+            _target = null;
         }
     }
 
@@ -104,6 +146,7 @@ public class EnemyAI : MonoBehaviour
                 Die();
                 break;
         }
+        HasLOSTo(debugTarget);
     }
 
     // BEHAVIOR STATES
@@ -112,12 +155,14 @@ public class EnemyAI : MonoBehaviour
         if (_timeStunned > 0f)
         {
             _behaviorState = EnemyState.Stun;
-            _enemyBehavior.Stun();
+            //_enemyBehavior.Stun();
+            print("Stunned!");
         }
         else if (PlayerInRange)
         {
             _behaviorState = EnemyState.Aggro;
-            _enemyBehavior.Attack(_target);
+            //_enemyBehavior.Attack(_target);
+            print("Aggro!");
         }
     }
 
@@ -126,12 +171,14 @@ public class EnemyAI : MonoBehaviour
         if (_timeStunned > 0f)
         {
             _behaviorState = EnemyState.Stun;
-            _enemyBehavior.Stun();
+            //_enemyBehavior.Stun();
+            print("Stunned!");
         }
         if (_target == null || !PlayerInRange)
         {
             _behaviorState = EnemyState.Idle;
-            _enemyBehavior.Idle();
+            //_enemyBehavior.Idle();
+            print("Idling.");
         }
     }
 
@@ -143,12 +190,14 @@ public class EnemyAI : MonoBehaviour
             if (PlayerInRange)
             {
                 _behaviorState = EnemyState.Aggro;
-                _enemyBehavior.Attack(_target);
+                //_enemyBehavior.Attack(_target);
+                print("Aggro!");
             }
             else
             {
                 _behaviorState = EnemyState.Idle;
-                _enemyBehavior.Idle();
+                //_enemyBehavior.Idle();
+                print("Idle.");
             }
         }
     }
@@ -157,5 +206,6 @@ public class EnemyAI : MonoBehaviour
     {
         // enemyBehavior must destroy gameObject when complelte
         _enemyBehavior.Die();
+        print("Ded.");
     }
 }

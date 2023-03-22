@@ -38,7 +38,8 @@ public class SlicerPolypController : MonoBehaviour
 
     public bool TryAggroPlayer()
     {
-        return ai.CheckForPlayer();
+        return false;
+        //return ai.CheckForPlayer();
     }
 
     public void AggroState()
