@@ -23,10 +23,9 @@ public class EnemyDamage : MonoBehaviour
     {
        if(collision.gameObject.tag == "Player")
        {
-            PlayerController controller = collision.gameObject.GetComponent<PlayerController>();
             damage = Mathf.Min(damage + damageTaken * Time.deltaTime, 100.0f);
-            controller.DealDamage(damageTaken);
-            Destroy(gameObject);
+            PlayerManager.Instance.Controller.DealDamage(damageTaken);
+            //Destroy(gameObject);
        }
     }
 }
