@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ShooterPolypBehavior : MonoBehaviour, IEnemyBehavior
 {
-    // Objects
+    // Objects - use foreach loops to set all animations at once
     [SerializeField] GameObject[] vines;
     Animator[] vineAnims;
 
@@ -60,24 +60,40 @@ public class ShooterPolypBehavior : MonoBehaviour, IEnemyBehavior
     {
         _target = target;
         _secondsTilShoot = SecBetweenShots;
+        foreach (Animator anim in vineAnims)
+        {
+            // TODO
+        }
         print("Attack animation");
     }
 
     void IEnemyBehavior.Die()
     {
         _target = null;
+        foreach (Animator anim in vineAnims)
+        {
+            // TODO
+        }
         print("Death animation");
     }
 
     void IEnemyBehavior.Idle()
     {
         _target = null;
+        foreach (Animator anim in vineAnims)
+        {
+            // TODO
+        }
         print("Idle animation");
     }
 
     void IEnemyBehavior.Stun()
     {
         _target = null;
+        foreach (Animator anim in vineAnims)
+        {
+            // TODO
+        }
         print("Stun animation.");
     }
 }
