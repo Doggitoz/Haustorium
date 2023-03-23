@@ -12,7 +12,9 @@ public class EnemyAI : MonoBehaviour
 {
 
     // Enemy behavior component. Set reference in inspector.
-    [SerializeField] IEnemyBehavior _enemyBehavior;
+    [SerializeField] Component enemyBehaviorScript;
+    IEnemyBehavior _enemyBehavior;
+
 
     // Component used for plant's detection area. Set reference in inspector.
     [SerializeField] SphereCollider _visionSphere;
@@ -84,8 +86,8 @@ public class EnemyAI : MonoBehaviour
 
     private void Awake()
     {
-        // Set references in inspector so no need to hunt for things on Awake()
-        //sphere = GetComponent<SphereCollider>();
+        //_enemyBehavior = enemyBehaviorScript as IEnemyBehavior;
+        _enemyBehavior = GetComponent<IEnemyBehavior>();
     }
 
     private void Start()
@@ -155,14 +157,14 @@ public class EnemyAI : MonoBehaviour
         if (_timeStunned > 0f)
         {
             _behaviorState = EnemyState.Stun;
-            //_enemyBehavior.Stun();
-            print("Stunned!");
+            _enemyBehavior.Stun();
+            //print("Stunned!");
         }
         else if (PlayerInRange)
         {
             _behaviorState = EnemyState.Aggro;
-            //_enemyBehavior.Attack(_target);
-            print("Aggro!");
+            _enemyBehavior.Attack(_target);
+            //print("Aggro!");
         }
     }
 
@@ -171,14 +173,14 @@ public class EnemyAI : MonoBehaviour
         if (_timeStunned > 0f)
         {
             _behaviorState = EnemyState.Stun;
-            //_enemyBehavior.Stun();
-            print("Stunned!");
+            _enemyBehavior.Stun();
+            //print("Stunned!");
         }
         if (_target == null || !PlayerInRange)
         {
             _behaviorState = EnemyState.Idle;
-            //_enemyBehavior.Idle();
-            print("Idling.");
+            _enemyBehavior.Idle();
+            //print("Idling.");
         }
     }
 

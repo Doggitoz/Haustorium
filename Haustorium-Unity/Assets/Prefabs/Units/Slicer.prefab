@@ -112,6 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f9e6d1d7f67dde4cb8f7adaba0b1edd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyBehaviorScript: {fileID: 1153401119429171692}
   _visionSphere: {fileID: 7762767290365687663}
   debugTarget: {fileID: 0}
   _lineOfSight:
@@ -157,6 +158,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 246081c20cd77e941a73c6f322bbfb12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StunnedTimeSec: 5
+  VineOne: {fileID: 2865826759243954783}
+  VineTwo: {fileID: 2865826758715398603}
+  vineOneAnim: {fileID: 0}
+  vineTwoAnim: {fileID: 0}
 --- !u!1 &3783906077783335069
 GameObject:
   m_ObjectHideFlags: 0
