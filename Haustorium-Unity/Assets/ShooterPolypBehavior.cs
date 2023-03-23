@@ -10,6 +10,7 @@ public class ShooterPolypBehavior : MonoBehaviour, IEnemyBehavior
     Animator[] vineAnims;
 
     // Settings
+    [SerializeField] GameObject ProjectilePrefab;
     [SerializeField] float SecBetweenShots = 1.0f;
     [SerializeField] float InaccuracyDegrees = 5f;
     [SerializeField] float StunnedTimeSec = 5f;
