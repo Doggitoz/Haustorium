@@ -21,8 +21,8 @@ public class SlicerPolypBehavior : MonoBehaviour, IEnemyBehavior
         vineTwoAnim = VineTwo.GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
+    // If the vine has a target, attempt to drag it in
+    void FixedUpdate()
     {
         if (vineTarget != null)
         {
@@ -31,6 +31,7 @@ public class SlicerPolypBehavior : MonoBehaviour, IEnemyBehavior
     }
 
     /// <summary>
+    /// Called once by AI when the polyp should begin attacking.
     /// Point one or both vines at the target and apply a force to drag it in
     /// </summary>
     /// <param name="target"></param>
@@ -40,18 +41,27 @@ public class SlicerPolypBehavior : MonoBehaviour, IEnemyBehavior
         print("Attack behavior");
     }
 
+    /// <summary>
+    /// Called once by AI when polyp is killed by pesticide.
+    /// </summary>
     void IEnemyBehavior.Die()
     {
         print("Death animation");
         vineTarget = null;
     }
 
+    /// <summary>
+    /// Called once by AI when the polyp returns to idle.
+    /// </summary>
     void IEnemyBehavior.Idle()
     {
         print("Idle animation");
         vineTarget = null;
     }
 
+    /// <summary>
+    /// Called once by AI when the polyp is stunned by the player's blaster.
+    /// </summary>
     void IEnemyBehavior.Stun()
     {
         print("Stun animation");
