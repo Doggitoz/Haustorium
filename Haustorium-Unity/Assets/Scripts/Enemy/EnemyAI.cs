@@ -15,6 +15,8 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] Component enemyBehaviorScript;
     IEnemyBehavior _enemyBehavior;
 
+    // Collider to detect bullets
+    [SerializeField] EnemyHurtBox _hurtBox;
 
     // Component used for plant's detection area. Set reference in inspector.
     [SerializeField] SphereCollider _visionSphere;
@@ -95,15 +97,26 @@ public class EnemyAI : MonoBehaviour
         sightRange = _visionSphere.radius;
         //sphere.isTrigger = true;
     }
-    
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        var other = collision.gameObject;
+        if (other.CompareTag("Projectile"))
+        {
+            _timeStunned = _enemyBehavior.stunDuration;
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
+        /*
         if (other.gameObject.CompareTag("Projectile"))
         {
             _timeStunned = _enemyBehavior.stunDuration;
             //_timeStunned = 10;
         }
-        else if (isTargetablePlayer(other))
+        else*/
+        if (isTargetablePlayer(other))
         {
             PlayerInRange = true;
             _target = other.gameObject;
