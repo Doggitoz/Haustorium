@@ -64,6 +64,11 @@ public class EnemyAI : MonoBehaviour
         return (target.CompareTag("Player") && HasLOSTo(target));
     }
 
+    void handleGetShot(EnemyHurtBox hurtBox)
+    {
+        _timeStunned = _enemyBehavior.stunDuration;
+    }
+
     /// <summary>
     /// Raycast to target and return true if we hit any part of it, false if we hit anything else
     /// </summary>
@@ -95,16 +100,8 @@ public class EnemyAI : MonoBehaviour
     private void Start()
     {
         sightRange = _visionSphere.radius;
+        _hurtBox.onShot += handleGetShot;
         //sphere.isTrigger = true;
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        var other = collision.gameObject;
-        if (other.CompareTag("Projectile"))
-        {
-            _timeStunned = _enemyBehavior.stunDuration;
-        }
     }
 
     private void OnTriggerEnter(Collider other)
