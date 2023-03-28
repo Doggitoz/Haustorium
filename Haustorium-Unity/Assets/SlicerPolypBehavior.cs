@@ -19,6 +19,8 @@ public class SlicerPolypBehavior : MonoBehaviour, IEnemyBehavior
     {
         vineOneAnim = VineOne.GetComponent<Animator>();
         vineTwoAnim = VineTwo.GetComponent<Animator>();
+        vineOneAnim.ResetTrigger("Wriggle");
+        vineTwoAnim.ResetTrigger("Wriggle");
     }
 
     // If the vine has a target, attempt to drag it in
@@ -38,6 +40,8 @@ public class SlicerPolypBehavior : MonoBehaviour, IEnemyBehavior
     void IEnemyBehavior.Attack(GameObject target)
     {
         vineTarget = target;
+        vineOneAnim.Play("Wriggle");
+        vineTwoAnim.Play("Wriggle");
         print("Attack behavior");
     }
 
@@ -46,6 +50,8 @@ public class SlicerPolypBehavior : MonoBehaviour, IEnemyBehavior
     /// </summary>
     void IEnemyBehavior.Die()
     {
+        vineOneAnim.Play("VineDeath");
+        vineTwoAnim.Play("VineDeath");
         print("Death animation");
         vineTarget = null;
     }
@@ -55,6 +61,8 @@ public class SlicerPolypBehavior : MonoBehaviour, IEnemyBehavior
     /// </summary>
     void IEnemyBehavior.Idle()
     {
+        vineOneAnim.Play("VineIdle");
+        vineTwoAnim.Play("VineIdle");
         print("Idle animation");
         vineTarget = null;
     }
@@ -64,6 +72,8 @@ public class SlicerPolypBehavior : MonoBehaviour, IEnemyBehavior
     /// </summary>
     void IEnemyBehavior.Stun()
     {
+        vineOneAnim.Play("VineStun");
+        vineTwoAnim.Play("VineStun");
         print("Stun animation");
         vineTarget = null;
     }
