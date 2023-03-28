@@ -161,8 +161,6 @@ MonoBehaviour:
   StunnedTimeSec: 5
   VineOne: {fileID: 2865826759243954783}
   VineTwo: {fileID: 2865826758715398603}
-  vineOneAnim: {fileID: 0}
-  vineTwoAnim: {fileID: 0}
 --- !u!1 &3783906077783335069
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,7 +202,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3783906077783335069}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3540cd17c50165a48937e2571f0a724f, type: 3}
   m_Name: 

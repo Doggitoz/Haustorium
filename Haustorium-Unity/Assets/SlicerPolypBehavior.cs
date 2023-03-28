@@ -19,8 +19,11 @@ public class SlicerPolypBehavior : MonoBehaviour, IEnemyBehavior
     {
         vineOneAnim = VineOne.GetComponent<Animator>();
         vineTwoAnim = VineTwo.GetComponent<Animator>();
-        vineOneAnim.ResetTrigger("Wriggle");
-        vineTwoAnim.ResetTrigger("Wriggle");
+
+        vineOneAnim.SetBool("Stunned", false);
+        vineOneAnim.SetBool("Aggro", false);
+        vineTwoAnim.SetBool("Stunned", false);
+        vineTwoAnim.SetBool("Aggro", false);
     }
 
     // If the vine has a target, attempt to drag it in
@@ -40,8 +43,12 @@ public class SlicerPolypBehavior : MonoBehaviour, IEnemyBehavior
     void IEnemyBehavior.Attack(GameObject target)
     {
         vineTarget = target;
-        vineOneAnim.Play("Wriggle");
-        vineTwoAnim.Play("Wriggle");
+        vineOneAnim.SetBool("Stunned", false);
+        vineTwoAnim.SetBool("Stunned", false);
+        vineOneAnim.SetBool("Aggro", true);
+        vineTwoAnim.SetBool("Aggro", true);
+        //vineOneAnim.Play("Wriggle");
+        //vineTwoAnim.Play("Wriggle");
         print("Attack behavior");
     }
 
@@ -61,6 +68,11 @@ public class SlicerPolypBehavior : MonoBehaviour, IEnemyBehavior
     /// </summary>
     void IEnemyBehavior.Idle()
     {
+        vineOneAnim.SetBool("Stunned", false);
+        vineOneAnim.SetBool("Aggro", false);
+        vineTwoAnim.SetBool("Stunned", false);
+        vineTwoAnim.SetBool("Aggro", false);
+
         vineOneAnim.Play("VineIdle");
         vineTwoAnim.Play("VineIdle");
         print("Idle animation");
@@ -72,8 +84,11 @@ public class SlicerPolypBehavior : MonoBehaviour, IEnemyBehavior
     /// </summary>
     void IEnemyBehavior.Stun()
     {
-        vineOneAnim.Play("VineStun");
-        vineTwoAnim.Play("VineStun");
+        vineOneAnim.SetBool("Stunned", true);
+        vineTwoAnim.SetBool("Stunned", true);
+
+        //vineOneAnim.Play("VineStun");
+        //vineTwoAnim.Play("VineStun");
         print("Stun animation");
         vineTarget = null;
     }

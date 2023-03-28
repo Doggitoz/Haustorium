@@ -100,8 +100,8 @@ public class EnemyAI : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Projectile"))
         {
-            //_timeStunned = _enemyBehavior.stunDuration;
-            _timeStunned = 10;
+            _timeStunned = _enemyBehavior.stunDuration;
+            //_timeStunned = 10;
         }
         else if (isTargetablePlayer(other))
         {
@@ -192,13 +192,13 @@ public class EnemyAI : MonoBehaviour
             if (PlayerInRange)
             {
                 _behaviorState = EnemyState.Aggro;
-                //_enemyBehavior.Attack(_target);
+                _enemyBehavior.Attack(_target);
                 print("Aggro!");
             }
             else
             {
                 _behaviorState = EnemyState.Idle;
-                //_enemyBehavior.Idle();
+                _enemyBehavior.Idle();
                 print("Idle.");
             }
         }
