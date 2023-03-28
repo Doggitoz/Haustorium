@@ -3,7 +3,12 @@ guid: d7f27ba3c5571a64a8c2f15605c66ff2
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_ShooterPolypVine
+    second: {fileID: 2100000, guid: 6eabc01a61ae9204ba9fa023e55de5ab, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

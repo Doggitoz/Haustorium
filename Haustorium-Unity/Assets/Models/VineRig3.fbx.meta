@@ -3,7 +3,17 @@ guid: 21bbba07e6ead02449418d18d4cadf91
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Spike
+    second: {fileID: 2100000, guid: 544af30d90927d74e990e3d0ba6e9ef0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Vine
+    second: {fileID: 2100000, guid: 231e399ad4aca5143a55dfe134291f38, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
