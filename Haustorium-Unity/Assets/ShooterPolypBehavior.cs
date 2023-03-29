@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 public class ShooterPolypBehavior : MonoBehaviour, IEnemyBehavior
 {
     // Objects - use foreach loops to set all animations at once
-    [SerializeField] GameObject[] vines;
-    Animator[] vineAnims;
+    [SerializeField] Animator[] vineAnims;
 
     // Settings
     [SerializeField] GameObject ProjectilePrefab;
@@ -24,15 +24,6 @@ public class ShooterPolypBehavior : MonoBehaviour, IEnemyBehavior
     void Start()
     {
         _secondsTilShoot = SecBetweenShots;
-
-        foreach (GameObject vine in vines)
-        {
-            Animator anim = vine.GetComponent<Animator>();
-            if (anim != null)
-            {
-                vineAnims.Append(anim);
-            }
-        }
     }
 
     void FixedUpdate()
@@ -63,7 +54,8 @@ public class ShooterPolypBehavior : MonoBehaviour, IEnemyBehavior
         _secondsTilShoot = SecBetweenShots;
         foreach (Animator anim in vineAnims)
         {
-            // TODO
+            anim.SetBool("Stun", false);
+            anim.SetBool("Aggro", true);
         }
         print("Attack animation");
     }
@@ -73,7 +65,7 @@ public class ShooterPolypBehavior : MonoBehaviour, IEnemyBehavior
         _target = null;
         foreach (Animator anim in vineAnims)
         {
-            // TODO
+            anim.SetBool("Dying", true);
         }
         print("Death animation");
     }
@@ -83,7 +75,8 @@ public class ShooterPolypBehavior : MonoBehaviour, IEnemyBehavior
         _target = null;
         foreach (Animator anim in vineAnims)
         {
-            // TODO
+            anim.SetBool("Stun", false);
+            anim.SetBool("Aggro", false);
         }
         print("Idle animation");
     }
@@ -93,7 +86,7 @@ public class ShooterPolypBehavior : MonoBehaviour, IEnemyBehavior
         _target = null;
         foreach (Animator anim in vineAnims)
         {
-            // TODO
+            anim.SetBool("Stun", true);
         }
         print("Stun animation.");
     }

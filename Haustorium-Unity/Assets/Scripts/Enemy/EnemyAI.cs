@@ -95,6 +95,7 @@ public class EnemyAI : MonoBehaviour
     {
         //_enemyBehavior = enemyBehaviorScript as IEnemyBehavior;
         _enemyBehavior = GetComponent<IEnemyBehavior>();
+        if ( _enemyBehavior == null ) { print("Enemy Behavior is missing!"); }
     }
 
     private void Start()
@@ -158,7 +159,7 @@ public class EnemyAI : MonoBehaviour
                 Die();
                 break;
         }
-        HasLOSTo(debugTarget);
+        //HasLOSTo(debugTarget);
     }
 
     // BEHAVIOR STATES
