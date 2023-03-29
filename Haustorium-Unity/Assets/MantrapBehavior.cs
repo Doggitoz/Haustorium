@@ -35,7 +35,7 @@ public class MantrapBehavior : MonoBehaviour, IEnemyBehavior
     {
         vineTarget = target;
         vineAnim.SetBool("Aggro", true);
-        vineAnim.SetBool("Stun", false);
+        vineAnim.SetBool("Stunned", false);
         print("Attack behavior");
     }
 
@@ -57,7 +57,7 @@ public class MantrapBehavior : MonoBehaviour, IEnemyBehavior
         print("Idle animation");
         vineTarget = null;
         vineAnim.SetBool("Aggro", false);
-        vineAnim.SetBool("Stun", false);
+        vineAnim.SetBool("Stunned", false);
     }
 
     /// <summary>
@@ -67,6 +67,6 @@ public class MantrapBehavior : MonoBehaviour, IEnemyBehavior
     {
         print("Stun animation");
         vineTarget = null;
-        vineAnim.SetBool("Stun", true);
+        vineAnim.SetBool("Stunned", true);
     }
 }
