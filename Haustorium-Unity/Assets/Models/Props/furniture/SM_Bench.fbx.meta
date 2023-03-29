@@ -8,17 +8,17 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_BlueEmissive
-    second: {fileID: 2100000, guid: 36aa909c7655f2a4c8f80f5c1407348b, type: 2}
+    second: {fileID: 2100000, guid: 364fecedd5d3fac448c40375ec2c2b52, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_LightMetal
-    second: {fileID: 2100000, guid: 266a2a06d8ef45e479cf02d20339c249, type: 2}
+    second: {fileID: 2100000, guid: 1e4b92cc4aeb17f41bf370ddd551a418, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_OrangeMetal
-    second: {fileID: 2100000, guid: 9bb073b8de0da8d478c66d8a726e04aa, type: 2}
+    second: {fileID: 2100000, guid: bbb6850d3857f224499ded2a3d659881, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

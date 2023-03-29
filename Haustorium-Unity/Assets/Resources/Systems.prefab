@@ -648,7 +648,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3c643f09d343bc4692d36f9f8fcd468, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DeveloperMode: 0
+  DeveloperMode: 1
   StartingState: 2
   SceneOverride: 1
   pauseMenu: {fileID: 4096993633556221700}
