@@ -102,6 +102,7 @@ public class EnemyAI : MonoBehaviour
     {
         sightRange = _visionSphere.radius;
         _hurtBox.onShot += handleGetShot;
+        //Physics.IgnoreLayerCollision(0, 3);
         //sphere.isTrigger = true;
     }
 
