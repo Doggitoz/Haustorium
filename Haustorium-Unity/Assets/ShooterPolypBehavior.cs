@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using UnityEditor;
 using UnityEngine;
 
@@ -11,7 +12,8 @@ public class ShooterPolypBehavior : MonoBehaviour, IEnemyBehavior
 
     // Settings
     [SerializeField] GameObject ProjectilePrefab;
-    [SerializeField] float SecBetweenShots = 1.0f;
+    [SerializeField] float _projectileSpeed;
+    [SerializeField] float _secBetweenShots = 1.0f;
     [SerializeField] float InaccuracyDegrees = 5f;
     [SerializeField] float StunnedTimeSec = 5f;
     float IEnemyBehavior.stunDuration { get => StunnedTimeSec; set => StunnedTimeSec = value; }
@@ -19,28 +21,39 @@ public class ShooterPolypBehavior : MonoBehaviour, IEnemyBehavior
     // Memebers
     GameObject _target;
     float _secondsTilShoot;
+    public Transform head, barrel;
 
     // Get all animations
     void Start()
     {
-        _secondsTilShoot = SecBetweenShots;
+        _secondsTilShoot = _secBetweenShots;
     }
 
     void FixedUpdate()
     {
         if (_secondsTilShoot > 0)
             _secondsTilShoot -= Time.deltaTime;
-        if (_target != null && _secondsTilShoot <= 0)
-            Shoot(_target);
+        if (_target != null)
+        {
+            head.LookAt(_target.transform);
+            if (_secondsTilShoot <= 0)
+            {
+                Shoot(_target);
+                _secondsTilShoot = _secBetweenShots;
+            }
+                
+        }
     }
 
     /// <summary>
-    /// Spawn a spread of projectiles moving toward target in a cone determined by InaccuracyDegrees
+    /// Copied from TurretController
     /// </summary>
     /// <param name="target"></param>
     void Shoot(GameObject target)
     {
-        // TODO
+        GameObject clone = Instantiate(ProjectilePrefab, barrel.position, head.rotation);
+        clone.GetComponent<Rigidbody>().AddForce(head.forward * _projectileSpeed, ForceMode.Impulse);
+        Destroy(clone, 10);
     }
 
     /// <summary>
@@ -51,7 +64,7 @@ public class ShooterPolypBehavior : MonoBehaviour, IEnemyBehavior
     void IEnemyBehavior.Attack(GameObject target)
     {
         _target = target;
-        _secondsTilShoot = SecBetweenShots;
+        _secondsTilShoot = _secBetweenShots;
         foreach (Animator anim in vineAnims)
         {
             anim.SetBool("Stun", false);

@@ -29643,7 +29643,7 @@ PrefabInstance:
     - target: {fileID: 3227478633385643684, guid: d115422ba0ae8574eba9d8b846836fdd,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3227478633385643690, guid: d115422ba0ae8574eba9d8b846836fdd,
         type: 3}
@@ -29699,6 +29699,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7444292657602541538, guid: d115422ba0ae8574eba9d8b846836fdd,
+        type: 3}
+      propertyPath: _projectileSpeed
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d115422ba0ae8574eba9d8b846836fdd, type: 3}
@@ -33369,6 +33374,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f9e6d1d7f67dde4cb8f7adaba0b1edd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyBehaviorScript: {fileID: 0}
+  _hurtBox: {fileID: 0}
   _visionSphere: {fileID: 0}
   debugTarget: {fileID: 0}
   _lineOfSight:
