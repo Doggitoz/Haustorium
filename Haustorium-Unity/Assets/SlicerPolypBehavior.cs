@@ -11,7 +11,7 @@ public class SlicerPolypBehavior : MonoBehaviour, IEnemyBehavior
     Animator vineOneAnim;
     Animator vineTwoAnim;
 
-    GameObject vineTarget;
+    Rigidbody vineTarget;
 
     float IEnemyBehavior.stunDuration { get => StunnedTimeSec; set => StunnedTimeSec = value; }
 
@@ -31,7 +31,7 @@ public class SlicerPolypBehavior : MonoBehaviour, IEnemyBehavior
     {
         if (vineTarget != null)
         {
-            // DRAG TARGET
+            
         }
     }
 
@@ -42,7 +42,7 @@ public class SlicerPolypBehavior : MonoBehaviour, IEnemyBehavior
     /// <param name="target"></param>
     void IEnemyBehavior.Attack(GameObject target)
     {
-        vineTarget = target;
+        vineTarget = target.GetComponent<Rigidbody>();
         vineOneAnim.SetBool("Stunned", false);
         vineTwoAnim.SetBool("Stunned", false);
         vineOneAnim.SetBool("Aggro", true);

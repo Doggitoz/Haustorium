@@ -100,10 +100,19 @@ public class EnemyAI : MonoBehaviour
 
     private void Start()
     {
+        /*
+        if (_visionSphere == null)
+        {
+            _visionSphere = GetComponent<SphereCollider>();
+            if (_visionSphere == null )
+            {
+                _visionSphere = gameObject.AddComponent<SphereCollider>();
+                print("Vision sphere not assigned for " + gameObject + ". Creating one.");
+            }
+            _visionSphere.isTrigger = true;
+        }*/
         sightRange = _visionSphere.radius;
         _hurtBox.onShot += handleGetShot;
-        //Physics.IgnoreLayerCollision(0, 3);
-        //sphere.isTrigger = true;
     }
 
     private void OnTriggerEnter(Collider other)
