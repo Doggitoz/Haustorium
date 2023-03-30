@@ -648,7 +648,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3c643f09d343bc4692d36f9f8fcd468, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DeveloperMode: 1
+  DeveloperMode: 0
   StartingState: 2
   SceneOverride: 1
   pauseMenu: {fileID: 4096993633556221700}
@@ -4653,7 +4653,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3684f6b7cf8edb94e9397f8f410b4ffd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8f0613087ecbac9459f72d0e06cdb49a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
