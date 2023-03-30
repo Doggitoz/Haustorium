@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0014270816, g: 0.0014270816, b: 0.0014270816, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3185,11 +3185,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SimpleMantrapSimpler1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3258392849899677631, guid: 30ef0c721eafbba469ab56a07d7f7d48,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30ef0c721eafbba469ab56a07d7f7d48, type: 3}
@@ -21915,12 +21910,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8127228308270597019, guid: f8773c85f41719c4bb6ca82d7875e58e, type: 3}
---- !u!1 &501862700 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3212361639144904507, guid: 894959ffb6ab9794089f6f41ee7cb55b,
-    type: 3}
-  m_PrefabInstance: {fileID: 741728912}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &508112595
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30411,11 +30400,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shooter
       objectReference: {fileID: 0}
-    - target: {fileID: 3227478633385643684, guid: d115422ba0ae8574eba9d8b846836fdd,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3227478633385643690, guid: d115422ba0ae8574eba9d8b846836fdd,
         type: 3}
       propertyPath: m_RootOrder
@@ -34024,21 +34008,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slicer
       objectReference: {fileID: 0}
-    - target: {fileID: 3212361639144904507, guid: 894959ffb6ab9794089f6f41ee7cb55b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5509916584367501403, guid: 894959ffb6ab9794089f6f41ee7cb55b,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5509916584367501403, guid: 894959ffb6ab9794089f6f41ee7cb55b,
-        type: 3}
-      propertyPath: playerController
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 894959ffb6ab9794089f6f41ee7cb55b, type: 3}
 --- !u!4 &741728913 stripped
@@ -34047,32 +34016,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 741728912}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &741728914
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 501862700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2011b3ab02902084188f133afc8b5169, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageTaken: 0.1
---- !u!135 &741728915
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 501862700}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &743265769
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36678,75 +36621,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2460851417159983200, guid: d7175b936a33e2b4fbfd86f724b2c337, type: 3}
---- !u!1 &776142612 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3258392849899677631, guid: 30ef0c721eafbba469ab56a07d7f7d48,
-    type: 3}
-  m_PrefabInstance: {fileID: 61270025}
-  m_PrefabAsset: {fileID: 0}
---- !u!135 &776142613
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 776142612}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1.2953951
-  m_Center: {x: 0, y: 0.79539514, z: 0}
---- !u!114 &776142614
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 776142612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2011b3ab02902084188f133afc8b5169, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageTaken: 100
---- !u!114 &776142616
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 776142612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47f09de097f7cce4a93fe1b950c675e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vines: {fileID: 0}
-  vinesGO: {fileID: 0}
-  tip: {fileID: 0}
-  damageAmt: 0
---- !u!114 &776142617
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 776142612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f9e6d1d7f67dde4cb8f7adaba0b1edd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyBehaviorScript: {fileID: 0}
-  _hurtBox: {fileID: 0}
-  _visionSphere: {fileID: 0}
-  debugTarget: {fileID: 0}
-  _lineOfSight:
-    serializedVersion: 2
-    m_Bits: 0
-  _raycastSource: {fileID: 0}
-  TagName: 
 --- !u!1001 &781567897
 PrefabInstance:
   m_ObjectHideFlags: 0

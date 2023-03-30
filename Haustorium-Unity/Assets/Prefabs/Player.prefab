@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1929193689608127418}
   - component: {fileID: 7015165010676622991}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Inventory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 7103320594977593933}
   - component: {fileID: 6801112662363743788}
   - component: {fileID: 523863993982890494}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -267,7 +267,7 @@ GameObject:
   - component: {fileID: 5795457016048514157}
   - component: {fileID: 833336318155769192}
   - component: {fileID: 7638642463137093480}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Footsteps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -409,7 +409,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8940368013728287023}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: BlasterRotation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -442,7 +442,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6497749527419983365}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: BarrelOpening
   m_TagString: Untagged
   m_Icon: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
@@ -475,7 +475,7 @@ GameObject:
   - component: {fileID: 6497749527610235310}
   - component: {fileID: 6497749527610235308}
   - component: {fileID: 6497749527610235309}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Capsule
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -558,7 +558,7 @@ GameObject:
   - component: {fileID: 6497749527663963910}
   - component: {fileID: 6497749527663963908}
   - component: {fileID: 6497749527663963909}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Input
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -750,7 +750,7 @@ GameObject:
   - component: {fileID: 6497749528273135939}
   - component: {fileID: 6497749528273135933}
   - component: {fileID: 6497749528273135934}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -864,7 +864,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1037402301490200563}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Local Audio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -900,7 +900,7 @@ GameObject:
   - component: {fileID: 2538520889458809699}
   - component: {fileID: 6961914855022285903}
   - component: {fileID: 8705513291201281015}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Flashlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1130,7 +1130,7 @@ GameObject:
   - component: {fileID: 108508842488712120}
   - component: {fileID: 6017204121221404572}
   - component: {fileID: 8496925748468422331}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Effects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
