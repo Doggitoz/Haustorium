@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class MantrapBehavior : MonoBehaviour, IEnemyBehavior
 {
+    [SerializeField] float DragForce = 20f;
     [SerializeField] float StunnedTimeSec = 5f;
     [SerializeField] GameObject Vine;
     Animator vineAnim;
 
-    GameObject vineTarget;
+    Rigidbody vineTarget;
 
     float IEnemyBehavior.stunDuration { get => StunnedTimeSec; set => StunnedTimeSec = value; }
 
@@ -22,7 +23,8 @@ public class MantrapBehavior : MonoBehaviour, IEnemyBehavior
     {
         if (vineTarget != null)
         {
-            // DRAG TARGET
+            Vector3 forceVect = (transform.position - vineTarget.transform.position).normalized * DragForce;
+            vineTarget.AddForce(forceVect, ForceMode.Force);
         }
     }
 
@@ -33,7 +35,7 @@ public class MantrapBehavior : MonoBehaviour, IEnemyBehavior
     /// <param name="target"></param>
     void IEnemyBehavior.Attack(GameObject target)
     {
-        vineTarget = target;
+        vineTarget = target.GetComponent<Rigidbody>();
         vineAnim.SetBool("Aggro", true);
         vineAnim.SetBool("Stunned", false);
         print("Attack behavior");
