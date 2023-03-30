@@ -7,7 +7,7 @@ public class EnemyHurtBox : MonoBehaviour
 {
     SphereCollider _sphereCollider;
 
-    public delegate void OnShot();
+    public delegate void OnShot(EnemyHurtBox sender);
     public event OnShot onShot;
 
     // Start is called before the first frame update
@@ -23,7 +23,7 @@ public class EnemyHurtBox : MonoBehaviour
         if (other.gameObject.CompareTag("Projectile"))
         {
             print("I've been shot by the player's gun");
-            onShot.Invoke();
+            onShot?.Invoke(this);
         }
     }
 

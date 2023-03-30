@@ -5,13 +5,14 @@ using UnityEngine;
 
 public class SlicerPolypBehavior : MonoBehaviour, IEnemyBehavior
 {
+    [SerializeField] float DragForce = 20f;
     [SerializeField] float StunnedTimeSec = 5f;
     [SerializeField] GameObject VineOne;
     [SerializeField] GameObject VineTwo;
     Animator vineOneAnim;
     Animator vineTwoAnim;
 
-    GameObject vineTarget;
+    Rigidbody vineTarget;
 
     float IEnemyBehavior.stunDuration { get => StunnedTimeSec; set => StunnedTimeSec = value; }
 
@@ -31,7 +32,8 @@ public class SlicerPolypBehavior : MonoBehaviour, IEnemyBehavior
     {
         if (vineTarget != null)
         {
-            // DRAG TARGET
+            Vector3 forceVect = (transform.position - vineTarget.transform.position).normalized * DragForce;
+            vineTarget.AddForce(forceVect, ForceMode.Force);
         }
     }
 
@@ -42,7 +44,7 @@ public class SlicerPolypBehavior : MonoBehaviour, IEnemyBehavior
     /// <param name="target"></param>
     void IEnemyBehavior.Attack(GameObject target)
     {
-        vineTarget = target;
+        vineTarget = target.GetComponent<Rigidbody>();
         vineOneAnim.SetBool("Stunned", false);
         vineTwoAnim.SetBool("Stunned", false);
         vineOneAnim.SetBool("Aggro", true);

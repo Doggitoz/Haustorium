@@ -64,6 +64,11 @@ public class EnemyAI : MonoBehaviour
         return (target.CompareTag("Player") && HasLOSTo(target));
     }
 
+    void handleGetShot(EnemyHurtBox hurtBox)
+    {
+        _timeStunned = _enemyBehavior.stunDuration;
+    }
+
     /// <summary>
     /// Raycast to target and return true if we hit any part of it, false if we hit anything else
     /// </summary>
@@ -90,21 +95,24 @@ public class EnemyAI : MonoBehaviour
     {
         //_enemyBehavior = enemyBehaviorScript as IEnemyBehavior;
         _enemyBehavior = GetComponent<IEnemyBehavior>();
+        if ( _enemyBehavior == null ) { print("Enemy Behavior is missing!"); }
     }
 
     private void Start()
     {
-        sightRange = _visionSphere.radius;
-        //sphere.isTrigger = true;
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        var other = collision.gameObject;
-        if (other.CompareTag("Projectile"))
+        /*
+        if (_visionSphere == null)
         {
-            _timeStunned = _enemyBehavior.stunDuration;
-        }
+            _visionSphere = GetComponent<SphereCollider>();
+            if (_visionSphere == null )
+            {
+                _visionSphere = gameObject.AddComponent<SphereCollider>();
+                print("Vision sphere not assigned for " + gameObject + ". Creating one.");
+            }
+            _visionSphere.isTrigger = true;
+        }*/
+        sightRange = _visionSphere.radius;
+        _hurtBox.onShot += handleGetShot;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -161,7 +169,7 @@ public class EnemyAI : MonoBehaviour
                 Die();
                 break;
         }
-        HasLOSTo(debugTarget);
+        //HasLOSTo(debugTarget);
     }
 
     // BEHAVIOR STATES
