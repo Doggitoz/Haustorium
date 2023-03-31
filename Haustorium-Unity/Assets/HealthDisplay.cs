@@ -22,7 +22,7 @@ public class HealthDisplay : MonoBehaviour
         if (m_health != health.health)
         {
             m_health = health.health;
-            text.text = "HP: " + m_health;
+            text.text = "HP: " + Mathf.Round(m_health);
         }
     }
 }
