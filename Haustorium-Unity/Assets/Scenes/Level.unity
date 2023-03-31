@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0012308005, g: 0.0012308005, b: 0.0012308005, a: 1}
+  m_IndirectSpecularColor: {r: 0.0015473379, g: 0.0015473379, b: 0.0015473379, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -40791,7 +40791,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TeleportDestination: {fileID: 2054752706}
-  player: {fileID: 2030950920}
+  player: {fileID: 0}
 --- !u!1 &839290053
 GameObject:
   m_ObjectHideFlags: 0
@@ -101295,12 +101295,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -8172257982662231215, guid: b80c40af78dc54945b0d35f6d853a647, type: 3}
---- !u!1 &2030950920 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6497749528273135935, guid: f39156daa656b16469e7e85fa51511c6,
-    type: 3}
-  m_PrefabInstance: {fileID: 214315103}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2030950925 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6497749528273135938, guid: f39156daa656b16469e7e85fa51511c6,

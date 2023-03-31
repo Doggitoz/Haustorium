@@ -17,7 +17,7 @@ public class IntroAudio : MonoBehaviour
 
     private void Update()
     {
-        transform.position = PlayerManager.Instance.Controller.gameObject.transform.position;
+        transform.position = PlayerManager.Instance.gameObject.transform.position;
     }
 
     IEnumerator playIntroAudio()
