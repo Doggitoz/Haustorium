@@ -8,7 +8,7 @@ public class HealthDisplay : MonoBehaviour
     [SerializeField] PlayerHealth health;
     [SerializeField] TMP_Text text;
 
-    private float m_health = 100f;
+    private float m_health = 4000000f;
 
     // Start is called before the first frame update
     void Start()
