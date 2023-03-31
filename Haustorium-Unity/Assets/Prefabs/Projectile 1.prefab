@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4236699634480593920}
   - component: {fileID: 1942472734640323386}
   - component: {fileID: 8255092689716713341}
-  - component: {fileID: -6888324071984776296}
+  - component: {fileID: 1696191195692708944}
   m_Layer: 0
   m_Name: Projectile 1
   m_TagString: Untagged
@@ -29,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4558687508157958763}
   m_LocalRotation: {x: 0.010658476, y: 0.011336854, z: -0.69751066, w: -0.71640545}
-  m_LocalPosition: {x: 2.951923, y: 2.6044183, z: 3.355063}
-  m_LocalScale: {x: 0.5471325, y: 0.8502998, z: 0.398106}
+  m_LocalPosition: {x: 2.9515, y: 2.5894, z: 3.355}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -115,7 +115,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-6888324071984776296
+--- !u!114 &1696191195692708944
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4558687508157958763}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2011b3ab02902084188f133afc8b5169, type: 3}
+  m_Script: {fileID: 11500000, guid: 9303ad98c1040ee4e90d156d5b5344b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageTaken: 10
+  damage: 5

@@ -100,7 +100,7 @@ MonoBehaviour:
   - {fileID: 5227191739745650377}
   ProjectilePrefab: {fileID: 4558687508157958763, guid: 61ff84629a9472748a62c58695bfc050,
     type: 3}
-  _projectileSpeed: 1500
+  _projectileSpeed: 15
   _secBetweenShots: 1
   InaccuracyDegrees: 5
   StunnedTimeSec: 5
