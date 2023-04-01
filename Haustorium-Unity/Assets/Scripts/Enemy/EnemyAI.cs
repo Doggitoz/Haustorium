@@ -41,8 +41,8 @@ public class EnemyAI : MonoBehaviour
 
     #endregion
 
-    EnemyState _behaviorState;
-    GameObject _target;
+    public EnemyState State;
+    public GameObject Target;
     float _timeStunned = 0f;
 
     public bool PlayerInRange { get; private set; }
@@ -127,7 +127,7 @@ public class EnemyAI : MonoBehaviour
         if (isTargetablePlayer(other))
         {
             PlayerInRange = true;
-            _target = other.gameObject;
+            Target = other.gameObject;
         }
     }
 
@@ -136,7 +136,7 @@ public class EnemyAI : MonoBehaviour
         if (!PlayerInRange && isTargetablePlayer(other))
         {
             PlayerInRange = true;
-            _target = other.gameObject;
+            Target = other.gameObject;
         }
     }
 
@@ -145,7 +145,7 @@ public class EnemyAI : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             PlayerInRange = false;
-            _target = null;
+            Target = null;
         }
     }
 
@@ -154,7 +154,7 @@ public class EnemyAI : MonoBehaviour
     /// </summary>
     private void Update()
     {
-        switch (_behaviorState)
+        switch (State)
         {
             case EnemyState.Idle:
                 IdleState();
@@ -177,14 +177,14 @@ public class EnemyAI : MonoBehaviour
     {
         if (_timeStunned > 0f)
         {
-            _behaviorState = EnemyState.Stun;
+            State = EnemyState.Stun;
             _enemyBehavior.Stun();
             //print("Stunned!");
         }
         else if (PlayerInRange)
         {
-            _behaviorState = EnemyState.Aggro;
-            _enemyBehavior.Attack(_target);
+            State = EnemyState.Aggro;
+            _enemyBehavior.Attack(Target);
             //print("Aggro!");
         }
     }
@@ -193,13 +193,13 @@ public class EnemyAI : MonoBehaviour
     {
         if (_timeStunned > 0f)
         {
-            _behaviorState = EnemyState.Stun;
+            State = EnemyState.Stun;
             _enemyBehavior.Stun();
             //print("Stunned!");
         }
-        if (_target == null || !PlayerInRange)
+        if (Target == null || !PlayerInRange)
         {
-            _behaviorState = EnemyState.Idle;
+            State = EnemyState.Idle;
             _enemyBehavior.Idle();
             //print("Idling.");
         }
@@ -212,13 +212,13 @@ public class EnemyAI : MonoBehaviour
         {
             if (PlayerInRange)
             {
-                _behaviorState = EnemyState.Aggro;
-                _enemyBehavior.Attack(_target);
+                State = EnemyState.Aggro;
+                _enemyBehavior.Attack(Target);
                 print("Aggro!");
             }
             else
             {
-                _behaviorState = EnemyState.Idle;
+                State = EnemyState.Idle;
                 _enemyBehavior.Idle();
                 print("Idle.");
             }
