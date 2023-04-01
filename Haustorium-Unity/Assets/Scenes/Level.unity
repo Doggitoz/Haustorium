@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0016234096, g: 0.0016234096, b: 0.0016234096, a: 1}
+  m_IndirectSpecularColor: {r: 99.46725, g: 99.46725, b: 99.46725, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11968,6 +11968,7 @@ MonoBehaviour:
   type: 1
   pod: {fileID: 1779416529}
   mesh: {fileID: 262156066}
+  GameObject: {fileID: 0}
 --- !u!114 &262156070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72557,10 +72558,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1061286884}
     m_Modifications:
+    - target: {fileID: 6919006985747118890, guid: 3acc41ebe3d30334ba0303d73cea07f5,
+        type: 3}
+      propertyPath: pod
+      value: 
+      objectReference: {fileID: 1779416529}
     - target: {fileID: 7462457214827650252, guid: 3acc41ebe3d30334ba0303d73cea07f5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7462457214827650252, guid: 3acc41ebe3d30334ba0303d73cea07f5,
         type: 3}
@@ -72616,11 +72622,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Tubinator
-      objectReference: {fileID: 0}
-    - target: {fileID: 7837435293780805238, guid: 3acc41ebe3d30334ba0303d73cea07f5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3acc41ebe3d30334ba0303d73cea07f5, type: 3}
@@ -105573,7 +105574,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2101854581
 Transform:
   m_ObjectHideFlags: 0
@@ -106475,6 +106476,7 @@ MonoBehaviour:
   type: 0
   pod: {fileID: 1779416529}
   mesh: {fileID: 2109608399}
+  GameObject: {fileID: 0}
 --- !u!4 &2111991940 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3227478633385643690, guid: d115422ba0ae8574eba9d8b846836fdd,

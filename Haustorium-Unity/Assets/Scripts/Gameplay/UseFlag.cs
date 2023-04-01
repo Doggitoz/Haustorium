@@ -7,6 +7,7 @@ public class UseFlag : MonoBehaviour
     [SerializeField] FlagType type;
     [SerializeField] PodController pod;
     [SerializeField] MeshRenderer mesh;
+    [SerializeField] GameObject GameObject;
 
     public void TryUsePickup()
     {   
@@ -17,6 +18,7 @@ public class UseFlag : MonoBehaviour
                 {
                     pod.FixPower();
                     EnableMesh();
+                    EnableObject();
                 }
                 break;
             case FlagType.Scrubber:
@@ -24,6 +26,7 @@ public class UseFlag : MonoBehaviour
                 {
                     pod.ReplaceScrubber();
                     EnableMesh();
+                    EnableObject();
                 }
                 break;
             case FlagType.WeedEx:
@@ -31,6 +34,7 @@ public class UseFlag : MonoBehaviour
                 {
                     pod.ClearObstruction();
                     EnableMesh();
+                    EnableObject();
                 }
                 break;
 
@@ -41,5 +45,11 @@ public class UseFlag : MonoBehaviour
     {
         if (mesh == null) return;
         mesh.enabled = true;
+    }
+
+    void EnableObject()
+    {
+        if (GameObject == null) return;
+        GameObject.SetActive(true);
     }
 }
