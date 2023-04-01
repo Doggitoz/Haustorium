@@ -6,6 +6,7 @@ using UnityEngine;
 public class AggroVine : MonoBehaviour
 {
     [SerializeField] EnemyAI controllingAI;
+    [SerializeField] bool invertWave;
     Quaternion defaultRotation;
     Vector3 defaultScale;
     bool aggro = false;
@@ -27,7 +28,14 @@ public class AggroVine : MonoBehaviour
     void Update()
     {
         if (aggro)
+        {
             gameObject.transform.LookAt(controllingAI.Target.transform);
+            if (invertWave)
+            {
+                gameObject.transform.Rotate(0, 0, 180);
+            }
+        }
+           
 
         if (!aggro && controllingAI.State == EnemyAI.EnemyState.Aggro)
         {
