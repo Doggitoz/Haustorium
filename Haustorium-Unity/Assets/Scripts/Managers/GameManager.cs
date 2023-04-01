@@ -127,9 +127,9 @@ public class GameManager : MonoBehaviour
 
     void EscapeStart()
     {
+        AudioManager.Instance.StopMusic();
         SetCursor(true);
-        //SceneManager.LoadScene(1);
-        SetState(GameState.Menu);
+        ChangeScene(3);
     }
 
     void IntroStart()
