@@ -8,32 +8,32 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_DarkMetal
-    second: {fileID: 2100000, guid: 3f802ed943434144d8d00af62d443c3c, type: 2}
+    second: {fileID: 2100000, guid: 2f5522ef89cb6f14fbaa245a832ab732, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_GreenGlass
-    second: {fileID: 2100000, guid: ef6038fac766b014eb04f80b08777f19, type: 2}
+    second: {fileID: 2100000, guid: 222a7517bf1ebc04cbb942a3c26d1bc9, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_LightMetal
-    second: {fileID: 2100000, guid: 266a2a06d8ef45e479cf02d20339c249, type: 2}
+    second: {fileID: 2100000, guid: 1e4b92cc4aeb17f41bf370ddd551a418, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_RedEmissive
-    second: {fileID: 2100000, guid: 5049e374da7eb77478f1efe973d49579, type: 2}
+    second: {fileID: 2100000, guid: 364fecedd5d3fac448c40375ec2c2b52, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_Vine
-    second: {fileID: 2100000, guid: 2200d0584cb2d474784e7cad8150c3f7, type: 2}
+    second: {fileID: 2100000, guid: 231e399ad4aca5143a55dfe134291f38, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_VineSpike
-    second: {fileID: 2100000, guid: c7b4c7055704f8a4ba0dd3996d8527b6, type: 2}
+    second: {fileID: 2100000, guid: 544af30d90927d74e990e3d0ba6e9ef0, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

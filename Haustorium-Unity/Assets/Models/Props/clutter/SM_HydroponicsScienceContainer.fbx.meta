@@ -3,7 +3,37 @@ guid: e7a6fbb56be89b74ab2baf4ae657fc19
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_BlueEmissive
+    second: {fileID: 2100000, guid: 364fecedd5d3fac448c40375ec2c2b52, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_DarkMetal
+    second: {fileID: 2100000, guid: 2f5522ef89cb6f14fbaa245a832ab732, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Dirt
+    second: {fileID: 2100000, guid: 4ee31dab4323bcb49b05e082e6b15ecd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Glass
+    second: {fileID: 2100000, guid: b76be4de7ec98f44498ae3905261c88a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_LightMetal
+    second: {fileID: 2100000, guid: 1e4b92cc4aeb17f41bf370ddd551a418, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_ShooterPolypLeaf
+    second: {fileID: 2100000, guid: 83fbe6fac95b62d4f97be4763f4024cd, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

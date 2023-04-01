@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
         playerCam.fieldOfView = fov;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         switch (playerState)
         {

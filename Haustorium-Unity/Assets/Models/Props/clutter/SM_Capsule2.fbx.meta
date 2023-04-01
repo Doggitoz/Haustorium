@@ -8,12 +8,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_DarkMetal
-    second: {fileID: 2100000, guid: 3f802ed943434144d8d00af62d443c3c, type: 2}
+    second: {fileID: 2100000, guid: 2f5522ef89cb6f14fbaa245a832ab732, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_LightMetal
-    second: {fileID: 2100000, guid: 266a2a06d8ef45e479cf02d20339c249, type: 2}
+    second: {fileID: 2100000, guid: 1e4b92cc4aeb17f41bf370ddd551a418, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
