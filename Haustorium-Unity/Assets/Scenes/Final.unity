@@ -291,7 +291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ListOfClips:
-  - {fileID: 8300000, guid: 77d8bd13a51502549a6c556f894b54a6, type: 3}
+  - {fileID: 8300000, guid: 5248af60ecd9b8545a9487f5d3aec682, type: 3}
   - {fileID: 0}
   background: {fileID: 877638886}
   fadeBackground: {fileID: 2035883196}
