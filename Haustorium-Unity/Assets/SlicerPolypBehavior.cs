@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class SlicerPolypBehavior : MonoBehaviour, IEnemyBehavior
 {
+    [SerializeField] float DPS = 10f;
     [SerializeField] float DragForce = 20f;
     [SerializeField] float StunnedTimeSec = 5f;
     [SerializeField] GameObject VineOne;
@@ -34,6 +35,7 @@ public class SlicerPolypBehavior : MonoBehaviour, IEnemyBehavior
         {
             Vector3 forceVect = (transform.position - vineTarget.transform.position).normalized * DragForce;
             vineTarget.AddForce(forceVect, ForceMode.Force);
+            PlayerManager.Instance.Controller.DealDamage(DPS * Time.deltaTime);
         }
     }
 

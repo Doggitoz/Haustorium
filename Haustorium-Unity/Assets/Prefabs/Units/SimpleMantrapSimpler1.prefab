@@ -211,7 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f5c12c6f6d10d14291f5e85b2686eeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DragForce: 20
+  DragForce: 25
   StunnedTimeSec: 5
   Vine: {fileID: 7262472102882073210}
 --- !u!114 &3366332142696412608
@@ -448,7 +448,7 @@ PrefabInstance:
     - target: {fileID: 800642696223039177, guid: 2080532c0a708e044ab9d00032c6c1d4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.431
       objectReference: {fileID: 0}
     - target: {fileID: 800642696223039177, guid: 2080532c0a708e044ab9d00032c6c1d4,
         type: 3}
@@ -494,6 +494,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HitBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 8412306727439015527, guid: 2080532c0a708e044ab9d00032c6c1d4,
+        type: 3}
+      propertyPath: DPS
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2080532c0a708e044ab9d00032c6c1d4, type: 3}
@@ -839,6 +844,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controllingAI: {fileID: 3366332142696412608}
+  invertWave: 0
 --- !u!4 &8035173022212554944 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7387653854537546, guid: 8a5369474d8fb044e8a53142461c9822,
